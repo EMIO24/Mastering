@@ -1,0 +1,73 @@
+{
+  "lesson": 31,
+  "week": 11,
+  "status": "ready",
+  "entrypoint": "submission.json",
+  "engine": "prediction",
+  "criteria": [
+    {
+      "id": "exercise_01",
+      "points": 10,
+      "mode": "manual",
+      "description": "Terminology: five accurate definitions/analogies worth 2 each (1 meaning, 1 analogy with mapping)."
+    },
+    {
+      "id": "exercise_02",
+      "points": 10,
+      "mode": "auto",
+      "description": "Exact worked-example prediction in submission.json.",
+      "expected": [
+        6,
+        false
+      ]
+    },
+    {
+      "id": "exercise_03",
+      "points": 10,
+      "mode": "manual",
+      "description": "In practice.js declare shopName with const and stock with let. Update stock, then demonstrate a caught reassignment error for a const binding in a separate example. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_04",
+      "points": 10,
+      "mode": "manual",
+      "description": "Convert \"200\" and \"3\" to numbers and calculate 600. Check Number.isFinite after conversion and reject a nonnumeric value; explain why empty text needs an explicit rule. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_05",
+      "points": 10,
+      "mode": "manual",
+      "description": "Implement stockLabel(stock) returning out for 0, low for 1 through 5 and available above 5. Demonstrate 0,1,5,6. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_06",
+      "points": 10,
+      "mode": "manual",
+      "description": "Create an array of three product objects with id, name, price and stock. Update only the second product and show all records before/after. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_07",
+      "points": 10,
+      "mode": "manual",
+      "description": "Implement inventoryValue(products) returning the sum of price*stock and 0 for empty input. Use Pen 200/10 and Book 500/3 to expect 3500. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_08",
+      "points": 10,
+      "mode": "manual",
+      "description": "Implement findProduct(products,id) and document missing-result behaviour. Test first, last and absent IDs without changing the array. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_09",
+      "points": 10,
+      "mode": "manual",
+      "description": "Create index.html with a labelled quantity input, button and output element. Load practice.js and display a calculated total on click; show an invalid-input message. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_10",
+      "points": 10,
+      "mode": "manual",
+      "description": "Independent verification: new normal case (3), boundary/failure case (3), reproducible commands and observed outputs (2), limitation and repair plan (2)."
+    }
+  ]
+}

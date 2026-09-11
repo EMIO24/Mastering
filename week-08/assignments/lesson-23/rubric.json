@@ -1,0 +1,70 @@
+{
+  "lesson": 23,
+  "week": 8,
+  "status": "ready",
+  "entrypoint": "submission.json",
+  "engine": "prediction",
+  "criteria": [
+    {
+      "id": "exercise_01",
+      "points": 10,
+      "mode": "manual",
+      "description": "Terminology: five accurate definitions/analogies worth 2 each (1 meaning, 1 analogy with mapping)."
+    },
+    {
+      "id": "exercise_02",
+      "points": 10,
+      "mode": "auto",
+      "description": "Exact worked-example prediction in submission.json.",
+      "expected": 405
+    },
+    {
+      "id": "exercise_03",
+      "points": 10,
+      "mode": "manual",
+      "description": "Implement GET /api/products/ using ProductSerializer(many=True). Demonstrate populated and empty results, documenting whether pagination is enabled. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_04",
+      "points": 10,
+      "mode": "manual",
+      "description": "Implement POST using request.data, serializer validation and save. A valid product returns 201; invalid stock returns 400 and no extra row. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_05",
+      "points": 10,
+      "mode": "manual",
+      "description": "Implement GET detail using a primary-key URL parameter. Return serialized data for an existing row and 404 for a missing one. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_06",
+      "points": 10,
+      "mode": "manual",
+      "description": "Implement PUT or PATCH with the documented completeness rules. Demonstrate changing stock, preserving unrelated fields on PATCH, and rejecting a negative value. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_07",
+      "points": 10,
+      "mode": "manual",
+      "description": "Implement DELETE returning 204 with an empty body. Verify the row is gone and a subsequent detail request is 404. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_08",
+      "points": 10,
+      "mode": "manual",
+      "description": "Send an unsupported method and malformed JSON using local API tests. Record 405 and 400 behaviour and prove the database remains unchanged. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_09",
+      "points": 10,
+      "mode": "manual",
+      "description": "Reimplement list/create with a DRF generic view in a separate module. Compare the serializer, queryset and permission configuration while retaining the same observable contract. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_10",
+      "points": 10,
+      "mode": "manual",
+      "description": "Independent verification: new normal case (3), boundary/failure case (3), reproducible commands and observed outputs (2), limitation and repair plan (2)."
+    }
+  ]
+}

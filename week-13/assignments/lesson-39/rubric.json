@@ -1,0 +1,70 @@
+{
+  "lesson": 39,
+  "week": 13,
+  "status": "ready",
+  "entrypoint": "submission.json",
+  "engine": "prediction",
+  "criteria": [
+    {
+      "id": "exercise_01",
+      "points": 10,
+      "mode": "manual",
+      "description": "Terminology: five accurate definitions/analogies worth 2 each (1 meaning, 1 analogy with mapping)."
+    },
+    {
+      "id": "exercise_02",
+      "points": 10,
+      "mode": "auto",
+      "description": "Exact worked-example prediction in submission.json.",
+      "expected": 7
+    },
+    {
+      "id": "exercise_03",
+      "points": 10,
+      "mode": "manual",
+      "description": "Compare frontend field names, routes, pagination and statuses with the running API. Write a corrected contract and resolve at least one demonstrated mismatch. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_04",
+      "points": 10,
+      "mode": "manual",
+      "description": "Implement the chosen login/logout flow and authenticated API transport. Demonstrate signed-out rejection, valid login and logout without recording credentials. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_05",
+      "points": 10,
+      "mode": "manual",
+      "description": "Fetch and display only the signed-in user\u2019s products. Use two users and demonstrate no cross-user records appear. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_06",
+      "points": 10,
+      "mode": "manual",
+      "description": "Submit product forms to the API. Show successful changes appear after reload and server field errors remain visible without discarding the draft. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_07",
+      "points": 10,
+      "mode": "manual",
+      "description": "Create the sale endpoint and frontend form with quantity validation and an atomic stock update. From stock 10 sell 3; show total and stock 7 after refresh. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_08",
+      "points": 10,
+      "mode": "manual",
+      "description": "Simulate a rejected oversale and interrupted request. Keep a coherent UI, do not display false success, and explain how retry avoids duplicate sales in your design. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_09",
+      "points": 10,
+      "mode": "manual",
+      "description": "Record register/create-user -> login -> add -> sell -> reload -> logout in demo.md. Include API/database evidence and a direct unauthorized access attempt. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_10",
+      "points": 10,
+      "mode": "manual",
+      "description": "Independent verification: new normal case (3), boundary/failure case (3), reproducible commands and observed outputs (2), limitation and repair plan (2)."
+    }
+  ]
+}

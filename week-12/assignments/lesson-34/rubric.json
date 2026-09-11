@@ -1,0 +1,70 @@
+{
+  "lesson": 34,
+  "week": 12,
+  "status": "ready",
+  "entrypoint": "submission.json",
+  "engine": "prediction",
+  "criteria": [
+    {
+      "id": "exercise_01",
+      "points": 10,
+      "mode": "manual",
+      "description": "Terminology: five accurate definitions/analogies worth 2 each (1 meaning, 1 analogy with mapping)."
+    },
+    {
+      "id": "exercise_02",
+      "points": 10,
+      "mode": "auto",
+      "description": "Exact worked-example prediction in submission.json.",
+      "expected": "4 units"
+    },
+    {
+      "id": "exercise_03",
+      "points": 10,
+      "mode": "manual",
+      "description": "Use your installed React project/toolchain and record package versions plus the local start command. Confirm the starting page renders before adding features. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_04",
+      "points": 10,
+      "mode": "manual",
+      "description": "Implement the example in a separate file. Display name, whole-naira price and stock with semantic HTML; render Pen and Book with different props. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_05",
+      "points": 10,
+      "mode": "manual",
+      "description": "Create ProductList mapping products to cards with key={product.id}. Reorder the fixture and verify each card still represents the correct product. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_06",
+      "points": 10,
+      "mode": "manual",
+      "description": "Render a clear empty-inventory message when products.length is 0. Demonstrate both empty and populated inputs. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_07",
+      "points": 10,
+      "mode": "manual",
+      "description": "Create App with Header, ProductList and Footer. Show the component tree and identify which component owns the fixture data. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_08",
+      "points": 10,
+      "mode": "manual",
+      "description": "Show Out of stock at 0 and Low stock for 1 through 5. Demonstrate 0,1,5,6 and avoid rendering an accidental numeric 0 from an && expression. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_09",
+      "points": 10,
+      "mode": "manual",
+      "description": "Add an onSelect callback prop and invoke it from a labelled button. Show the parent receives the selected ID; do not mutate product inside the card. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_10",
+      "points": 10,
+      "mode": "manual",
+      "description": "Independent verification: new normal case (3), boundary/failure case (3), reproducible commands and observed outputs (2), limitation and repair plan (2)."
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "lesson": 18,
+  "week": 6,
+  "rubric_status": "ready",
+  "checked_at": "2026-09-08T11:22:37+00:00",
+  "fingerprint": "4cd451795feb072f17eb6fa5222da50a472731a39a5ef6ca8dd748a6316aa744",
+  "engine": "04d3759d24933ac0b316aa15a43ec029607b67b6aa2977adb5e5c408a2543bcc",
+  "earned": 0,
+  "pending": 90,
+  "maximum": 100,
+  "state": "REVIEW PENDING",
+  "criteria": [
+    {
+      "id": "exercise_01",
+      "points": 10,
+      "mode": "manual",
+      "description": "Terminology: five accurate definitions/analogies worth 2 each (1 meaning, 1 analogy with mapping).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_02",
+      "points": 10,
+      "mode": "auto",
+      "description": "Exact worked-example prediction in submission.json.",
+      "expected": [
+        "Pen"
+      ],
+      "score": 0,
+      "state": "failed",
+      "feedback": "Missing or incorrect prediction. Trace the example and check JSON types, then retry."
+    },
+    {
+      "id": "exercise_03",
+      "points": 10,
+      "mode": "manual",
+      "description": "Create Pen 200/4, Book 500/8 and Bag 4000/0 in a disposable database. Record primary keys and clear only your practice rows when repeating. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_04",
+      "points": 10,
+      "mode": "manual",
+      "description": "Query stock <=4 ordered by stock then id. Expect Bag and Pen. Save Python and output, then check threshold 0. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_05",
+      "points": 10,
+      "mode": "manual",
+      "description": "Use get(pk=...) for Pen and catch Product.DoesNotExist for a missing ID. Explain why filter returns an empty QuerySet instead of raising for no match. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_06",
+      "points": 10,
+      "mode": "manual",
+      "description": "Use an F expression to increase Pen stock by 3, then refresh_from_db. Expect 7. Explain why an already loaded object can show an older value. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_07",
+      "points": 10,
+      "mode": "manual",
+      "description": "Use ORM aggregation to calculate the total stock units after the update: 15. Define empty-queryset behaviour and demonstrate it. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_08",
+      "points": 10,
+      "mode": "manual",
+      "description": "Use Django query capture in a test or shell to compare building a QuerySet with evaluating it. Save query counts and explain evaluation triggers. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_09",
+      "points": 10,
+      "mode": "manual",
+      "description": "Fetch only names and stock with values() or values_list(), then compare output types with model instances. Show explicit ordering and explain when this projection helps. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_10",
+      "points": 10,
+      "mode": "manual",
+      "description": "Independent verification: new normal case (3), boundary/failure case (3), reproducible commands and observed outputs (2), limitation and repair plan (2).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    }
+  ]
+}

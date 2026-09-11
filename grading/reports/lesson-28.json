@@ -1,0 +1,105 @@
+{
+  "lesson": 28,
+  "week": 10,
+  "rubric_status": "ready",
+  "checked_at": "2026-09-08T11:22:37+00:00",
+  "fingerprint": "c32ab76a1b77be62eef7e29293060419b92799ef8a2af6d171d1e9e69679420c",
+  "engine": "04d3759d24933ac0b316aa15a43ec029607b67b6aa2977adb5e5c408a2543bcc",
+  "earned": 0,
+  "pending": 90,
+  "maximum": 100,
+  "state": "REVIEW PENDING",
+  "criteria": [
+    {
+      "id": "exercise_01",
+      "points": 10,
+      "mode": "manual",
+      "description": "Terminology: five accurate definitions/analogies worth 2 each (1 meaning, 1 analogy with mapping).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_02",
+      "points": 10,
+      "mode": "auto",
+      "description": "Exact worked-example prediction in submission.json.",
+      "expected": 600,
+      "score": 0,
+      "state": "failed",
+      "feedback": "Missing or incorrect prediction. Trace the example and check JSON types, then retry."
+    },
+    {
+      "id": "exercise_03",
+      "points": 10,
+      "mode": "manual",
+      "description": "Write a standard-library unittest for sale totals with 200*3=600, zero stock value and another price. Show the exact discovery command and results. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_04",
+      "points": 10,
+      "mode": "manual",
+      "description": "Add tests rejecting zero, negative, fractional and excessive sale quantities. Assert unchanged stock for every rejected case. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_05",
+      "points": 10,
+      "mode": "manual",
+      "description": "Use a temporary database/file fixture and verify a saved product can be reloaded. Keep tests independent from your working inventory. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_06",
+      "points": 10,
+      "mode": "manual",
+      "description": "Use DRF APIClient for valid creation 201, invalid creation 400 and missing detail 404. Check response fields and row counts. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_07",
+      "points": 10,
+      "mode": "manual",
+      "description": "Create two users and prove one cannot read or change the other’s products. Include a direct request using a guessed valid ID. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_08",
+      "points": 10,
+      "mode": "manual",
+      "description": "Replace the external payment boundary with a fake returning success or failure. Check a failure does not deduct stock; no network calls should be needed. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_09",
+      "points": 10,
+      "mode": "manual",
+      "description": "Temporarily introduce an incorrect comparison at the stock boundary in a disposable copy. Show a relevant test fails, restore the correct implementation and show it passes. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_10",
+      "points": 10,
+      "mode": "manual",
+      "description": "Independent verification: new normal case (3), boundary/failure case (3), reproducible commands and observed outputs (2), limitation and repair plan (2).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    }
+  ]
+}

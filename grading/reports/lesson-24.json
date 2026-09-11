@@ -1,0 +1,105 @@
+{
+  "lesson": 24,
+  "week": 8,
+  "rubric_status": "ready",
+  "checked_at": "2026-09-08T11:22:37+00:00",
+  "fingerprint": "4ea495b31d199de21b5b00bab1db7653895fd46b0bb4c877923eba63a972f0db",
+  "engine": "04d3759d24933ac0b316aa15a43ec029607b67b6aa2977adb5e5c408a2543bcc",
+  "earned": 0,
+  "pending": 90,
+  "maximum": 100,
+  "state": "REVIEW PENDING",
+  "criteria": [
+    {
+      "id": "exercise_01",
+      "points": 10,
+      "mode": "manual",
+      "description": "Terminology: five accurate definitions/analogies worth 2 each (1 meaning, 1 analogy with mapping).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_02",
+      "points": 10,
+      "mode": "auto",
+      "description": "Exact worked-example prediction in submission.json.",
+      "expected": "product-list",
+      "score": 0,
+      "state": "failed",
+      "feedback": "Missing or incorrect prediction. Trace the example and check JSON types, then retry."
+    },
+    {
+      "id": "exercise_03",
+      "points": 10,
+      "mode": "manual",
+      "description": "Implement ProductViewSet using ModelViewSet, Product queryset and serializer. Preserve your existing validation rules. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_04",
+      "points": 10,
+      "mode": "manual",
+      "description": "Register products with basename product under /api/. Use reverse for product-list and product-detail and record resolved URLs. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_05",
+      "points": 10,
+      "mode": "manual",
+      "description": "Record method/path/action mappings for list, create, retrieve, update, partial_update and destroy. Test one success and one missing detail. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_06",
+      "points": 10,
+      "mode": "manual",
+      "description": "Configure page-number pagination with page size 2. Seed five products and verify page lengths 2, 2, 1 with stable ID ordering. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_07",
+      "points": 10,
+      "mode": "manual",
+      "description": "Add a low-stock collection action using stock <= supplied threshold. Validate threshold input and ensure its result is serialized and paginated consistently. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_08",
+      "points": 10,
+      "mode": "manual",
+      "description": "Support an explicit allowed set of ordering fields. Demonstrate stock ordering and document how an unsupported field is handled. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_09",
+      "points": 10,
+      "mode": "manual",
+      "description": "Update api-contract.md to match generated routes, trailing slashes and page envelope. Test a client reads results rather than assuming the root is a list. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_10",
+      "points": 10,
+      "mode": "manual",
+      "description": "Independent verification: new normal case (3), boundary/failure case (3), reproducible commands and observed outputs (2), limitation and repair plan (2).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    }
+  ]
+}

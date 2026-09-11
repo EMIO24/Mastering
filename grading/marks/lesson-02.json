@@ -1,0 +1,14 @@
+{
+  "input_messages": {
+    "score": 5.0,
+    "note": "Regrade of exercises 1-7: supplied three, 2.5, 0, -2, and whitespace-padded 3. Helper prompts five times, returns actual int 3, and prints distinct whole-number and greater-than-zero messages. Full 5/5.",
+    "marked_at": "2026-09-10T17:23:26+00:00",
+    "fingerprint": "e082b705623566b2a76e2b2431f0ffee17a22c2a216cb98777a0ea7b5b891175"
+  },
+  "menu": {
+    "score": 9.0,
+    "note": "Regrade exercises 6-7: repeating/list/quit 4, numeric invalid-option recovery 1, successful sale and receipt 3, oversale caught and continued use 1. Still missing: unknown-ID recovery 2 (ID 99 causes UnboundLocalError), input-helper integration 2 (text option/quantity raises uncaught ValueError), displaying specific sale error 1, saved journey evidence 1. checks.py only imports; debug-notes.md empty. Exercises 8-10 excluded from requested review.",
+    "marked_at": "2026-09-10T17:23:27+00:00",
+    "fingerprint": "e082b705623566b2a76e2b2431f0ffee17a22c2a216cb98777a0ea7b5b891175"
+  }
+}

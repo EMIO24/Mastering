@@ -1,0 +1,26 @@
+{
+  "types": {
+    "score": 0.0,
+    "note": "Exercise 1: answers.md has an empty Number 1 section; no original value/type predictions or experiments submitted. 0/20.",
+    "marked_at": "2026-09-10T17:14:22+00:00",
+    "fingerprint": "a52dceabe37281e978808a5d50d66ef8bbebdd1a0c3e3b73f394af98aa9af1f5"
+  },
+  "positive_loop": {
+    "score": 10.0,
+    "note": "Exercise 3: iteration 3/3, positive filtering 3/3, accumulation 4/4. Executed the submitted loop with only the input fixture changed: mixed=8, empty=0, nonpositive=0, positive=7. Add the requested explanation of starting at zero.",
+    "marked_at": "2026-09-10T17:14:25+00:00",
+    "fingerprint": "a52dceabe37281e978808a5d50d66ef8bbebdd1a0c3e3b73f394af98aa9af1f5"
+  },
+  "collections": {
+    "score": 19.0,
+    "note": "Exercise 4: outer list 2/2, dictionaries 2/2, required data 1/2 (Stationary instead of specified Stationery), targeted update 4/4. Execution preserves Pen stock 10 and changes Notebook 3 to 8. Exercise 5: derived set 4/4, tuple 2/2, dictionary/list explanations in answers.md 4/4. Use the requested catalogue variable name.",
+    "marked_at": "2026-09-10T17:14:25+00:00",
+    "fingerprint": "a52dceabe37281e978808a5d50d66ef8bbebdd1a0c3e3b73f394af98aa9af1f5"
+  },
+  "debug": {
+    "score": 4.0,
+    "note": "Exercise 9: identifies print versus return 2/2; corrected total in starter.py 2/2; explanation 0/1 because assigning a print result is legal, but gives None. Exercise 10: 0/5; practice.py retains names = names.append(...), prints None, and has no correction or explanation.",
+    "marked_at": "2026-09-10T17:14:26+00:00",
+    "fingerprint": "a52dceabe37281e978808a5d50d66ef8bbebdd1a0c3e3b73f394af98aa9af1f5"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "lesson": 25,
+  "week": 9,
+  "status": "ready",
+  "entrypoint": "submission.json",
+  "engine": "prediction",
+  "criteria": [
+    {
+      "id": "exercise_01",
+      "points": 10,
+      "mode": "manual",
+      "description": "Terminology: five accurate definitions/analogies worth 2 each (1 meaning, 1 analogy with mapping)."
+    },
+    {
+      "id": "exercise_02",
+      "points": 10,
+      "mode": "auto",
+      "description": "Exact worked-example prediction in submission.json.",
+      "expected": true
+    },
+    {
+      "id": "exercise_03",
+      "points": 10,
+      "mode": "manual",
+      "description": "Draw login -> access/refresh tokens -> authenticated API request -> expiry -> refresh. Identify which steps require credentials and which can fail. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_04",
+      "points": 10,
+      "mode": "manual",
+      "description": "Use a maintained JWT integration compatible with your installed Django/DRF versions. Record its exact version and configure access-token authentication without implementing signatures yourself. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_05",
+      "points": 10,
+      "mode": "manual",
+      "description": "Create token endpoints and request tokens for a local test user. Record statuses and claim names with credential/token values redacted. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_06",
+      "points": 10,
+      "mode": "manual",
+      "description": "Send an access token using Authorization: Bearer. Demonstrate a valid request and a missing/invalid credential rejection; record the configured status semantics. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_07",
+      "points": 10,
+      "mode": "manual",
+      "description": "Use a short lifetime in local test settings or the library\u2019s time-testing support. Demonstrate an expired access token is rejected even though its payload can still be decoded. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_08",
+      "points": 10,
+      "mode": "manual",
+      "description": "Exchange a valid refresh token for a new access token, then try an invalid refresh token. Document rotation/revocation settings and their logout implications. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_09",
+      "points": 10,
+      "mode": "manual",
+      "description": "Compare memory and HttpOnly-cookie approaches for a browser client, including XSS/CSRF implications. Choose one for your app and document reload, refresh and logout behaviour. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1)."
+    },
+    {
+      "id": "exercise_10",
+      "points": 10,
+      "mode": "manual",
+      "description": "Independent verification: new normal case (3), boundary/failure case (3), reproducible commands and observed outputs (2), limitation and repair plan (2)."
+    }
+  ]
+}

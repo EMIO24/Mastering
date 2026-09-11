@@ -1,0 +1,113 @@
+{
+  "lesson": 3,
+  "week": 1,
+  "rubric_status": "ready",
+  "checked_at": "2026-09-08T11:22:36+00:00",
+  "fingerprint": "8efb64751d5ef6d32414f2822edcc96ce45aba7423262ec4fdc2d96f25146fee",
+  "engine": "04d3759d24933ac0b316aa15a43ec029607b67b6aa2977adb5e5c408a2543bcc",
+  "earned": 0,
+  "pending": 65,
+  "maximum": 100,
+  "state": "REVIEW PENDING",
+  "criteria": [
+    {
+      "id": "drills",
+      "points": 15,
+      "mode": "manual",
+      "description": "Review file_drills.py: text overwrite/append/read (5), JSON string round trip (5), CSV quoting and numeric conversion (5).",
+      "section": "",
+      "gate": false,
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "menu_add",
+      "points": 20,
+      "mode": "manual",
+      "description": "Demonstrate menu, empty listing, nonblank names, valid prices/stocks, and unique IDs after restart.",
+      "section": "",
+      "gate": false,
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "sales",
+      "points": 20,
+      "mode": "manual",
+      "description": "Demonstrate totals and all rejected-sale cases; stock must remain unchanged on rejection.",
+      "section": "",
+      "gate": true,
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "validation",
+      "points": 10,
+      "mode": "auto",
+      "description": "Validate record types, required fields, ranges, and unique IDs.",
+      "section": "",
+      "gate": false,
+      "score": 0,
+      "state": "failed",
+      "feedback": "NotImplementedError: Implement inventory validation."
+    },
+    {
+      "id": "loading",
+      "points": 10,
+      "mode": "auto",
+      "description": "Missing file returns []; bad syntax/structure/encoding/read errors are preserved and raised.",
+      "section": "",
+      "gate": true,
+      "score": 0,
+      "state": "failed",
+      "feedback": "NotImplementedError: Implement loading."
+    },
+    {
+      "id": "saving",
+      "points": 10,
+      "mode": "auto",
+      "description": "Save/load round trip, replacement, invalid-data protection, and failed-write preservation.",
+      "section": "",
+      "gate": true,
+      "score": 0,
+      "state": "failed",
+      "feedback": "NotImplementedError: Implement saving."
+    },
+    {
+      "id": "persistence_demo",
+      "points": 5,
+      "mode": "manual",
+      "description": "Demonstrate restart persistence, startup refusal on bad data, and in-memory consistency after a failed save.",
+      "section": "",
+      "gate": true,
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "csv_export",
+      "points": 5,
+      "mode": "auto",
+      "description": "Export exact columns, quoted names, extra-field selection, and an empty header.",
+      "section": "",
+      "gate": false,
+      "score": 0,
+      "state": "failed",
+      "feedback": "NotImplementedError: Implement CSV export."
+    },
+    {
+      "id": "demo",
+      "points": 5,
+      "mode": "manual",
+      "description": "Review demo.md explanations and verify failed export never reports success.",
+      "section": "",
+      "gate": false,
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "lesson": 35,
+  "week": 12,
+  "rubric_status": "ready",
+  "checked_at": "2026-09-08T11:22:37+00:00",
+  "fingerprint": "174329775a202cf72a84062141cc72e87503eef79e8e55c16abee43cfe791a74",
+  "engine": "04d3759d24933ac0b316aa15a43ec029607b67b6aa2977adb5e5c408a2543bcc",
+  "earned": 0,
+  "pending": 90,
+  "maximum": 100,
+  "state": "REVIEW PENDING",
+  "criteria": [
+    {
+      "id": "exercise_01",
+      "points": 10,
+      "mode": "manual",
+      "description": "Terminology: five accurate definitions/analogies worth 2 each (1 meaning, 1 analogy with mapping).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_02",
+      "points": 10,
+      "mode": "auto",
+      "description": "Exact worked-example prediction in submission.json.",
+      "expected": 2,
+      "score": 0,
+      "state": "failed",
+      "feedback": "Missing or incorrect prediction. Trace the example and check JSON types, then retry."
+    },
+    {
+      "id": "exercise_03",
+      "points": 10,
+      "mode": "manual",
+      "description": "Implement Counter and demonstrate the initial 0 and one-click 2 result. Compare functional setters with two snapshot-based setters in a separate demonstration. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_04",
+      "points": 10,
+      "mode": "manual",
+      "description": "Use state for an input value and onChange. Keep the raw text while editing; convert and validate on submit. Demonstrate empty, 3 and invalid text. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_05",
+      "points": 10,
+      "mode": "manual",
+      "description": "Control name, price and stock inputs. Reject blank name or negative/non-integer numbers with visible messages; successful submission calls a parent callback. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_06",
+      "points": 10,
+      "mode": "manual",
+      "description": "Add a new product using a new array and update one product with map plus object spread. Show existing product data is preserved. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_07",
+      "points": 10,
+      "mode": "manual",
+      "description": "Put products in the common parent of list and summary. Add a product and show both components update from the same data source. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_08",
+      "points": 10,
+      "mode": "manual",
+      "description": "Calculate inventory value from products during rendering instead of storing a separate synchronized total. Show updating price or stock updates the summary. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_09",
+      "points": 10,
+      "mode": "manual",
+      "description": "After a successful local submission clear the form; after a failed validation keep entered values. Demonstrate both flows with keyboard-accessible labels and buttons. Mark: implementation/artefact meets stated requirements (6); demonstrated stated cases with actual output (3); explanation of the result (1).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    },
+    {
+      "id": "exercise_10",
+      "points": 10,
+      "mode": "manual",
+      "description": "Independent verification: new normal case (3), boundary/failure case (3), reproducible commands and observed outputs (2), limitation and repair plan (2).",
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    }
+  ]
+}

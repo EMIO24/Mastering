@@ -1,0 +1,168 @@
+{
+  "lesson": 1,
+  "week": 1,
+  "rubric_status": "ready",
+  "checked_at": "2026-09-10T17:14:26+00:00",
+  "fingerprint": "a52dceabe37281e978808a5d50d66ef8bbebdd1a0c3e3b73f394af98aa9af1f5",
+  "engine": "04d3759d24933ac0b316aa15a43ec029607b67b6aa2977adb5e5c408a2543bcc",
+  "earned": 68.0,
+  "pending": 0,
+  "maximum": 100,
+  "state": "NEEDS PRACTICE",
+  "criteria": [
+    {
+      "id": "types",
+      "points": 20,
+      "mode": "manual",
+      "description": "Mark five predicted values and types using the assignment breakdown.",
+      "section": "A",
+      "gate": false,
+      "score": 0.0,
+      "state": "reviewed",
+      "feedback": "Exercise 1: answers.md has an empty Number 1 section; no original value/type predictions or experiments submitted. 0/20."
+    },
+    {
+      "id": "stock_zero",
+      "points": 3,
+      "mode": "auto",
+      "description": "Zero stock returns out.",
+      "section": "B",
+      "gate": false,
+      "score": 3,
+      "state": "passed",
+      "feedback": "Passed the automated behaviour cases."
+    },
+    {
+      "id": "stock_low",
+      "points": 4,
+      "mode": "auto",
+      "description": "Stocks 1 through 5 return low.",
+      "section": "B",
+      "gate": false,
+      "score": 4,
+      "state": "passed",
+      "feedback": "Passed the automated behaviour cases."
+    },
+    {
+      "id": "stock_available",
+      "points": 3,
+      "mode": "auto",
+      "description": "Stocks above 5 return available.",
+      "section": "B",
+      "gate": false,
+      "score": 3,
+      "state": "passed",
+      "feedback": "Passed the automated behaviour cases."
+    },
+    {
+      "id": "positive_loop",
+      "points": 10,
+      "mode": "manual",
+      "description": "Review iteration (3), positive check (3), and accumulation/result (4).",
+      "section": "B",
+      "gate": false,
+      "score": 10.0,
+      "state": "reviewed",
+      "feedback": "Exercise 3: iteration 3/3, positive filtering 3/3, accumulation 4/4. Executed the submitted loop with only the input fixture changed: mixed=8, empty=0, nonpositive=0, positive=7. Add the requested explanation of starting at zero."
+    },
+    {
+      "id": "collections",
+      "points": 20,
+      "mode": "manual",
+      "description": "Review the list/dictionaries (6), update (4), set (4), tuple (2), and explanation (4).",
+      "section": "C",
+      "gate": false,
+      "score": 19.0,
+      "state": "reviewed",
+      "feedback": "Exercise 4: outer list 2/2, dictionaries 2/2, required data 1/2 (Stationary instead of specified Stationery), targeted update 4/4. Execution preserves Pen stock 10 and changes Notebook 3 to 8. Exercise 5: derived set 4/4, tuple 2/2, dictionary/list explanations in answers.md 4/4. Use the requested catalogue variable name."
+    },
+    {
+      "id": "inventory_total",
+      "points": 8,
+      "mode": "auto",
+      "description": "Return correct inventory totals for multiple datasets.",
+      "section": "D",
+      "gate": false,
+      "score": 8,
+      "state": "passed",
+      "feedback": "Passed the automated behaviour cases."
+    },
+    {
+      "id": "inventory_empty",
+      "points": 2,
+      "mode": "auto",
+      "description": "Empty inventory has value zero.",
+      "section": "D",
+      "gate": false,
+      "score": 2,
+      "state": "passed",
+      "feedback": "Passed the automated behaviour cases."
+    },
+    {
+      "id": "low_stock",
+      "points": 8,
+      "mode": "auto",
+      "description": "Return matching names in order including the threshold.",
+      "section": "D",
+      "gate": false,
+      "score": 8,
+      "state": "passed",
+      "feedback": "Passed the automated behaviour cases."
+    },
+    {
+      "id": "low_empty",
+      "points": 2,
+      "mode": "auto",
+      "description": "Empty input returns an empty list.",
+      "section": "D",
+      "gate": false,
+      "score": 2,
+      "state": "passed",
+      "feedback": "Passed the automated behaviour cases."
+    },
+    {
+      "id": "find_match",
+      "points": 5,
+      "mode": "auto",
+      "description": "Find first and later records by ID.",
+      "section": "D",
+      "gate": false,
+      "score": 0,
+      "state": "failed",
+      "feedback": "AssertionError: Expected {'id': 1, 'name': 'Pen', 'price': 200, 'stock': 10}; received None"
+    },
+    {
+      "id": "find_missing",
+      "points": 3,
+      "mode": "auto",
+      "description": "Missing IDs and empty input return None.",
+      "section": "D",
+      "gate": false,
+      "score": 3,
+      "state": "passed",
+      "feedback": "Passed the automated behaviour cases."
+    },
+    {
+      "id": "find_unchanged",
+      "points": 2,
+      "mode": "auto",
+      "description": "Lookup does not mutate records.",
+      "section": "D",
+      "gate": false,
+      "score": 2,
+      "state": "passed",
+      "feedback": "Passed the automated behaviour cases."
+    },
+    {
+      "id": "debug",
+      "points": 10,
+      "mode": "manual",
+      "description": "Review cause, correction, and explanation for both bugs.",
+      "section": "E",
+      "gate": false,
+      "score": 4.0,
+      "state": "reviewed",
+      "feedback": "Exercise 9: identifies print versus return 2/2; corrected total in starter.py 2/2; explanation 0/1 because assigning a print result is legal, but gives None. Exercise 10: 0/5; practice.py retains names = names.append(...), prints None, and has no correction or explanation."
+    }
+  ]
+}

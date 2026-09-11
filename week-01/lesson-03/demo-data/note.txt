@@ -1,0 +1,2 @@
+Opening stock checked.
+Closing stock checked.

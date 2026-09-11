@@ -1,0 +1,91 @@
+{
+  "lesson": 2,
+  "week": 1,
+  "rubric_status": "ready",
+  "checked_at": "2026-09-10T17:23:27+00:00",
+  "fingerprint": "e082b705623566b2a76e2b2431f0ffee17a22c2a216cb98777a0ea7b5b891175",
+  "engine": "04d3759d24933ac0b316aa15a43ec029607b67b6aa2977adb5e5c408a2543bcc",
+  "earned": 79.0,
+  "pending": 15,
+  "maximum": 100,
+  "state": "REVIEW PENDING",
+  "criteria": [
+    {
+      "id": "input_retry",
+      "points": 15,
+      "mode": "auto",
+      "description": "Retry invalid/fractional/nonpositive input and accept a whitespace-padded positive integer.",
+      "section": "",
+      "gate": false,
+      "score": 15,
+      "state": "passed",
+      "feedback": "Passed the automated behaviour cases."
+    },
+    {
+      "id": "input_messages",
+      "points": 5,
+      "mode": "manual",
+      "description": "Demonstrate distinct conversion and nonpositive messages.",
+      "section": "",
+      "gate": false,
+      "score": 5.0,
+      "state": "reviewed",
+      "feedback": "Regrade of exercises 1-7: supplied three, 2.5, 0, -2, and whitespace-padded 3. Helper prompts five times, returns actual int 3, and prints distinct whole-number and greater-than-zero messages. Full 5/5."
+    },
+    {
+      "id": "lookup",
+      "points": 15,
+      "mode": "auto",
+      "description": "Find records and handle missing/empty input without mutation.",
+      "section": "",
+      "gate": false,
+      "score": 15,
+      "state": "passed",
+      "feedback": "Passed the automated behaviour cases."
+    },
+    {
+      "id": "sale_success",
+      "points": 10,
+      "mode": "auto",
+      "description": "A valid sale returns the total and reduces stock correctly.",
+      "section": "",
+      "gate": true,
+      "score": 10,
+      "state": "passed",
+      "feedback": "Passed the automated behaviour cases."
+    },
+    {
+      "id": "sale_invalid",
+      "points": 25,
+      "mode": "auto",
+      "description": "Reject zero, negative, excessive, fractional, text, and Boolean quantities without mutation.",
+      "section": "",
+      "gate": true,
+      "score": 25,
+      "state": "passed",
+      "feedback": "Passed the automated behaviour cases."
+    },
+    {
+      "id": "menu",
+      "points": 15,
+      "mode": "manual",
+      "description": "Demonstrate list/sell/quit, unknown IDs/options, and continued use after errors.",
+      "section": "",
+      "gate": true,
+      "score": 9.0,
+      "state": "reviewed",
+      "feedback": "Regrade exercises 6-7: repeating/list/quit 4, numeric invalid-option recovery 1, successful sale and receipt 3, oversale caught and continued use 1. Still missing: unknown-ID recovery 2 (ID 99 causes UnboundLocalError), input-helper integration 2 (text option/quantity raises uncaught ValueError), displaying specific sale error 1, saved journey evidence 1. checks.py only imports; debug-notes.md empty. Exercises 8-10 excluded from requested review."
+    },
+    {
+      "id": "debug",
+      "points": 15,
+      "mode": "manual",
+      "description": "Review debug-notes.md, specific exceptions, and explanations of else/finally and validate-before-mutate.",
+      "section": "",
+      "gate": false,
+      "score": null,
+      "state": "pending",
+      "feedback": "Manual review and evidence required."
+    }
+  ]
+}

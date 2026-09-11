@@ -1,0 +1,120 @@
+{
+  "lesson": 1,
+  "week": 1,
+  "status": "ready",
+  "entrypoint": "starter.py",
+  "criteria": [
+    {
+      "id": "types",
+      "points": 20,
+      "mode": "manual",
+      "description": "Mark five predicted values and types using the assignment breakdown.",
+      "section": "A",
+      "gate": false
+    },
+    {
+      "id": "stock_zero",
+      "points": 3,
+      "mode": "auto",
+      "description": "Zero stock returns out.",
+      "section": "B",
+      "gate": false
+    },
+    {
+      "id": "stock_low",
+      "points": 4,
+      "mode": "auto",
+      "description": "Stocks 1 through 5 return low.",
+      "section": "B",
+      "gate": false
+    },
+    {
+      "id": "stock_available",
+      "points": 3,
+      "mode": "auto",
+      "description": "Stocks above 5 return available.",
+      "section": "B",
+      "gate": false
+    },
+    {
+      "id": "positive_loop",
+      "points": 10,
+      "mode": "manual",
+      "description": "Review iteration (3), positive check (3), and accumulation/result (4).",
+      "section": "B",
+      "gate": false
+    },
+    {
+      "id": "collections",
+      "points": 20,
+      "mode": "manual",
+      "description": "Review the list/dictionaries (6), update (4), set (4), tuple (2), and explanation (4).",
+      "section": "C",
+      "gate": false
+    },
+    {
+      "id": "inventory_total",
+      "points": 8,
+      "mode": "auto",
+      "description": "Return correct inventory totals for multiple datasets.",
+      "section": "D",
+      "gate": false
+    },
+    {
+      "id": "inventory_empty",
+      "points": 2,
+      "mode": "auto",
+      "description": "Empty inventory has value zero.",
+      "section": "D",
+      "gate": false
+    },
+    {
+      "id": "low_stock",
+      "points": 8,
+      "mode": "auto",
+      "description": "Return matching names in order including the threshold.",
+      "section": "D",
+      "gate": false
+    },
+    {
+      "id": "low_empty",
+      "points": 2,
+      "mode": "auto",
+      "description": "Empty input returns an empty list.",
+      "section": "D",
+      "gate": false
+    },
+    {
+      "id": "find_match",
+      "points": 5,
+      "mode": "auto",
+      "description": "Find first and later records by ID.",
+      "section": "D",
+      "gate": false
+    },
+    {
+      "id": "find_missing",
+      "points": 3,
+      "mode": "auto",
+      "description": "Missing IDs and empty input return None.",
+      "section": "D",
+      "gate": false
+    },
+    {
+      "id": "find_unchanged",
+      "points": 2,
+      "mode": "auto",
+      "description": "Lookup does not mutate records.",
+      "section": "D",
+      "gate": false
+    },
+    {
+      "id": "debug",
+      "points": 10,
+      "mode": "manual",
+      "description": "Review cause, correction, and explanation for both bugs.",
+      "section": "E",
+      "gate": false
+    }
+  ]
+}
