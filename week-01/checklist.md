@@ -4,23 +4,23 @@ Record evidence in [your progress notes](assignments/progress.md). Leave an item
 
 ## Lesson 1 — Fundamentals
 
-- [ ] I can distinguish strings, integers, floats, booleans, and `None`.
-- [ ] I can explain `/`, `//`, `%`, comparisons, and Boolean operators.
-- [ ] I can choose between a list, tuple, dictionary, and set.
-- [ ] I can trace a condition and a loop, including the empty-input case.
-- [ ] I can write a function that returns a result instead of only printing it.
-- [ ] I can read and update nested product data.
-- [ ] I completed and marked the diagnostic out of 100.
-- [ ] I reached 80/100 and at least half the points in each section, or completed targeted practice and a fresh retry.
+- [ yes] I can distinguish strings, integers, floats, booleans, and `None`.
+- [ yes] I can explain `/`, `//`, `%`, comparisons, and Boolean operators.
+- [yes ] I can choose between a list, tuple, dictionary, and set.
+- [ yes] I can trace a condition and a loop, including the empty-input case.
+- [yes ] I can write a function that returns a result instead of only printing it.
+- [yes ] I can read and update nested product data.
+- [no ] I completed and marked the diagnostic out of 100.
+- [ no(i was reluctant to answer them because i knew them already)] I reached 80/100 and at least half the points in each section, or completed targeted practice and a fresh retry.
 
 ## Lesson 2 — Defensive programming
 
-- [ ] I can read a traceback and locate the failing line.
-- [ ] I can explain `try`, `except`, `else`, `finally`, and `raise`.
-- [ ] I catch specific expected exceptions around the operation that may fail.
-- [ ] I distinguish an invalid integer from an out-of-range integer.
-- [ ] An invalid sale leaves the product's stock unchanged.
-- [ ] My program handles unknown products and repeated invalid input.
+- [yes ] I can read a traceback and locate the failing line.
+- [yes ] I can explain `try`, `except`, `else`, `finally`, and `raise`.
+- [ yes] I catch specific expected exceptions around the operation that may fail.
+- [ yes] I distinguish an invalid integer from an out-of-range integer.
+- [yes ] An invalid sale leaves the product's stock unchanged.
+- [ yes] My program handles unknown products and repeated invalid input.
 
 ## Lesson 3 — Persistence
 
