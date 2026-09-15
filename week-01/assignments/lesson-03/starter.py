@@ -58,8 +58,8 @@ def validate_inventory(records):
 def load_inventory(path):
     # TODO: Return [] only for a missing file; validate successfully parsed data.
     try:
-        with open(DATA_FILE, 'r', encoding='utf-8') as file:
-            text = json.loads(file)
+        with open(path, 'r', encoding='utf-8') as file:
+            text = json.load(file)
     except FileNotFoundError:
         return []
     
