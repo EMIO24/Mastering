@@ -49,8 +49,8 @@ def validate_inventory(records):
             raise ValueError("The product name should be a strind and contain at least one non-whitespace character")
         if not isinstance(products["price"], int) or products["price"] <= 0:
             raise ValueError("Integer must be greater than or equal to zero, in whole naira")
-        if not isinstance(products["stock"], int) or products["stock"] < 0:
-            raise ValueError("Integer must be greater than or equal to zero, in whole naira")
+        if type(products["stock"]) is not int or products["stock"] < 0:
+            raise ValueError("Integer must be greater than zero, in whole naira")
 
     return records
 
