@@ -43,11 +43,11 @@ def validate_inventory(records):
 
 
     for products in records:
-        if not isinstance(products["id"], int) or products["id"] <= 0:
+        if type(products["id"]) is not int or products["id"] <= 0:
             raise ValueError("Id must be Positive integer only")
         if not isinstance(products["name"], str) or products["name"].strip() == "":
             raise ValueError("The product name should be a strind and contain at least one non-whitespace character")
-        if not isinstance(products["price"], int) or products["price"] <= 0:
+        if type(products["price"]) is not int or products["price"] <= 0:
             raise ValueError("Integer must be greater than or equal to zero, in whole naira")
         if type(products["stock"]) is not int or products["stock"] < 0:
             raise ValueError("Integer must be greater than zero, in whole naira")
@@ -57,7 +57,14 @@ def validate_inventory(records):
 
 def load_inventory(path):
     # TODO: Return [] only for a missing file; validate successfully parsed data.
-    raise NotImplementedError("Implement loading.")
+    try:
+        with open(DATA_FILE, 'r', encoding='utf-8') as file:
+            text = json.loads(file)
+    except FileNotFoundError:
+        return []
+    
+    valid = validate_inventory(text)
+    return valid
 
 
 def save_inventory(path, records):
