@@ -12,19 +12,19 @@ records = [
     {
         "id": 101,
         "name": "Wireless Mechanical Keyboard",
-        "price": 129.99,
+        "price": 129,
         "stock": 45
     },
     {
         "id": 102,
         "name": "Ergonomic Optical Mouse",
-        "price": 49.50,
+        "price": 49,
         "stock": 120
     },
     {
         "id": 103,
         "name": "USB-C Docking Station",
-        "price": 89.00,
+        "price": 89,
         "stock": 0
     }
 ]
@@ -34,11 +34,12 @@ def validate_inventory(records):
     ID = set()
     required = {"id", "name", "price", "stock"}
     for products in records:
+        if not required.issubset(products):
+            raise ValueError("Required key missing")
+
         if products["id"] in ID:
             raise ValueError("Id number must be unique")
         ID.add(products["id"])
-        if not required.issubset(products):
-            raise ValueError("Required key missing")
 
 
     for products in records:
@@ -48,7 +49,7 @@ def validate_inventory(records):
             raise ValueError("The product name should be a strind and contain at least one non-whitespace character")
         if not isinstance(products["price"], int) or products["price"] <= 0:
             raise ValueError("Integer must be greater than or equal to zero, in whole naira")
-        if not isinstance(products["stock"], int) or products["stock"] >= 0:
+        if not isinstance(products["stock"], int) or products["stock"] <= 0:
             raise ValueError("Integer must be greater than or equal to zero, in whole naira")
 
     return records
