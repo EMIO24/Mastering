@@ -1,5 +1,7 @@
 # Lesson 6 assignment: OOP pillars and composition
 
+> **How to use this assignment:** Do one exercise at a time. Do not try to understand all ten at once. For every exercise, first read **What you are learning**, then **What to do**, then run the listed checks. Only after the code behaves correctly should you record the evidence. If a technical word is unfamiliar, return to this lesson's teaching notes before coding.
+
 **10 exercises · 10 points each · 100 points total.** Work through them in order. Each practical exercise has individually written steps and concrete checks, with its inputs, expected outcomes and common mistakes explained below.
 
 ## What you are building and why
@@ -38,23 +40,57 @@ If a step explicitly names another file, create that too. If an exercise changes
 | **Polymorphism** | Using different objects through a common operation. | cash and transfer workers both accept pay. |
 | **Composition** | Building an object using other objects. | a checkout has a payment worker. |
 
-A **fixture** is known starting data, like a prepared sample shelf. A **boundary case** lies at the edge of a rule, such as requesting exactly the available stock. **Expected** is what the rule says should happen; **actual** is what you observed. A **criterion** is one part of the marking scheme. An **artefact** is a file or concrete result you created. **Demonstrate** means carry out the action and record its actual result, not merely say that it works.
+### Assignment words in simpler English
+
+- **Fixture:** the known starting data you use for a test. Example: Pen starts with stock 4.
+- **Boundary case:** a value exactly at the edge of a rule. Example: selling all 4 items when stock is 4.
+- **Expected result:** what you predict should happen before you run the code.
+- **Actual result:** what really happened when you ran it.
+- **Criterion:** one thing the marker is checking.
+- **Artefact:** a real file or output you created.
+- **Demonstrate:** actually run the code and show the result. Writing “it works” is not evidence.
 
 ## Exercise 1: Explain the five terms — 10 points
 
-**Where:** Exercise 1 in `answers.md`.
+**Where to work:** under `## Exercise 1` in `answers.md`.
 
-1. Read the five topic terms above, then explain each in your own words.
-2. Give an everyday analogy for each and map its parts explicitly. For example: “A function is like a service counter: arguments are the order and the returned value is the item handed back.” Use this form with this lesson's terms.
-3. Explain one point where one of your analogies stops fitting the precise rule. Software cannot infer missing instructions through human judgement.
+### What you are learning
 
-**Finished when:** all five terms have an accurate meaning and mapped analogy. Each earns 1 point for meaning and 1 for mapping. Manual criterion: `exercise_01`.
+This exercise checks whether you understand the lesson's five main terms. You are **not** being tested on memorising the definition word-for-word.
+
+### What to do
+
+For each of the five terms listed above:
+
+1. Explain it in your own words, as if you were explaining it to another beginner.
+2. Give one everyday example or analogy.
+3. Explain how the analogy connects to the programming idea.
+
+After all five, choose **one** analogy and explain one way the real Python concept is more precise than the analogy.
+
+### Example of the style expected
+
+Do not copy this as one of your answers:
+
+> A function is like a service counter. You give the counter an order (arguments), work happens, and you may receive something back (return value). The analogy is imperfect because a Python function follows exact programmed instructions rather than human judgement.
+
+### You are done when
+
+You have five explanations in your own words, five connected examples/analogies, and one limitation of an analogy.
+
+**Points:** 10 total — 2 points per term (1 for the meaning, 1 for showing that you understand it through the example). Manual criterion: `exercise_01`.
 
 ## Exercise 2: Predict and check the worked example — 10 points
 
 **Where:** `exercise_02` in `submission.json`; reasoning in `answers.md`.
 
-Use this exact example and the input/conditions in the question. This may be a code fragment or a message/query to trace. Use the setup above and the explanation below to place it correctly.
+### What you are learning
+
+This checks whether you can read code and predict what it will do **before** Python tells you the answer.
+
+### What to do
+
+Read the code below, but do not run it yet.
 
 ```python
 class Cash:
@@ -71,13 +107,13 @@ for payment in [Cash(), Transfer()]:
 
 **Question:** Enter the printed lines as a JSON list of strings.
 
-1. Read the example and question before executing. Identify the supplied values.
-2. Work out the requested result. Follow the question's answer shape: number, string, Boolean, list or object.
-3. Keep the `"exercise_02"` key in submission.json and replace its `null` value. JSON strings need double quotes; Booleans are lowercase `true`/`false`. Do not add comments or a trailing comma.
-4. Write your reasoning separately under Exercise 2 in answers.md.
-5. Run in the required environment, or trace the message/query for a design example. Compare actual and predicted results; explain any correction.
+1. Predict the answer on your own first.
+2. Write **why** you expect that answer under Exercise 2 in `answers.md`.
+3. Run the code and compare the real result with your prediction.
+4. In `submission.json`, replace only the `null` beside `"exercise_02"` with the required answer. Keep the file valid JSON.
+5. If your prediction was wrong, keep a short note in `answers.md` explaining what you misunderstood and what rule corrected your thinking.
 
-For an unrelated question whose answer is 12, the file would be `{"exercise_02": 12}`. **12 illustrates the format; it is not this lesson's answer.**
+**Important:** do not put explanations inside `submission.json`. That file holds only the machine-checkable answer. Your reasoning belongs in `answers.md`.
 
 <details>
 <summary>Worked-example explanation — read after predicting</summary>
@@ -86,13 +122,13 @@ The loop only relies on pay(amount). Python does not require a shared parent cla
 
 </details>
 
-**Finished when:** valid JSON contains the requested answer and reasoning is saved separately. The checker awards 10 automatic points for the exact final prediction (`exercise_02`). It does not verify reasoning or practical code through this answer.
+**You are done when:** valid JSON contains the requested answer and reasoning is saved separately. The checker awards 10 automatic points for the exact final prediction (`exercise_02`). It does not verify reasoning or practical code through this answer.
 
 ## Exercise 3: Define a payment contract - 10 points
 
 **Where:** `design.md`. Record results under Exercise 3 in `answers.md`.
 
-**Required outcome:** In design.md specify pay(amount), positive whole-naira input, returned receipt text and failure behaviour. Give valid 600 and invalid -1 cases.
+**In simple terms — what you need to achieve:** In design.md specify pay(amount), positive whole-naira input, returned receipt text and failure behaviour. Give valid 600 and invalid -1 cases.
 
 A contract tells callers what service they may request without knowing its internal details.
 
@@ -101,17 +137,17 @@ A contract tells callers what service they may request without knowing its inter
 3. State that a simulated payment refusal raises RuntimeError and must not pretend payment succeeded.
 4. Define how checkout recognizes success: pay returns normally before stock changes.
 
-**Check:** the contract covers input, output and both failure categories. Map pay to a counter operation and receipt text to its returned evidence; no real transaction takes place.
+**Test these cases before you call it finished:** the contract covers input, output and both failure categories. Map pay to a counter operation and receipt text to its returned evidence; no real transaction takes place.
 
-**Record:** the exact call, command or browser action; starting input; expected result above; actual output; and one sentence explaining the result. Use a fresh fixture whenever the instructions describe an independent case.
+**What to write in `answers.md`:** record: (1) what you ran, (2) the starting values, (3) what you expected, (4) what actually happened, and (5) one sentence explaining why. When a case is meant to be independent, create fresh objects so an earlier test cannot affect it.
 
-**Marks:** meeting the stated requirements 6, demonstrated cases with actual evidence 3, explanation 1. Manual criterion: `exercise_03`. The case-specific check above defines completion; a file merely existing earns no implementation points.
+**How this exercise is graded:** 6 points for the required implementation, 3 points for actually running and recording the required checks, and 1 point for your explanation. Manual criterion: `exercise_03`. Creating the file alone is not enough; the behaviour must work.
 
 ## Exercise 4: Implement two strategies - 10 points
 
 **Where:** `payments.py`. Record results under Exercise 4 in `answers.md`.
 
-**Required outcome:** Write CashPayment and TransferPayment implementing the contract. Both reject nonpositive amounts before producing a receipt. Demonstrate both with 600.
+**In simple terms — what you need to achieve:** Write CashPayment and TransferPayment implementing the contract. Both reject nonpositive amounts before producing a receipt. Demonstrate both with 600.
 
 Different workers can perform the same named service.
 
@@ -120,17 +156,17 @@ Different workers can perform the same named service.
 3. Put both objects in a list and call pay(600) in one loop without checking their class names.
 4. Try 0 and -1 on each; add text and Boolean values to verify the whole-number rule.
 
-**Check:** both implementations succeed for 600 and reject invalid amounts before producing a receipt. Explain polymorphism as one request understood by different workers, rather than an if/else chain naming every worker type.
+**Test these cases before you call it finished:** both implementations succeed for 600 and reject invalid amounts before producing a receipt. Explain polymorphism as one request understood by different workers, rather than an if/else chain naming every worker type.
 
-**Record:** the exact call, command or browser action; starting input; expected result above; actual output; and one sentence explaining the result. Use a fresh fixture whenever the instructions describe an independent case.
+**What to write in `answers.md`:** record: (1) what you ran, (2) the starting values, (3) what you expected, (4) what actually happened, and (5) one sentence explaining why. When a case is meant to be independent, create fresh objects so an earlier test cannot affect it.
 
-**Marks:** meeting the stated requirements 6, demonstrated cases with actual evidence 3, explanation 1. Manual criterion: `exercise_04`. The case-specific check above defines completion; a file merely existing earns no implementation points.
+**How this exercise is graded:** 6 points for the required implementation, 3 points for actually running and recording the required checks, and 1 point for your explanation. Manual criterion: `exercise_04`. Creating the file alone is not enough; the behaviour must work.
 
 ## Exercise 5: Compose checkout - 10 points
 
 **Where:** `checkout.py`. Record results under Exercise 5 in `answers.md`.
 
-**Required outcome:** Implement Checkout(payment) that calls the injected payment object. Run the same checkout operation with each payment class without conditionals on class names.
+**In simple terms — what you need to achieve:** Implement Checkout(payment) that calls the injected payment object. Run the same checkout operation with each payment class without conditionals on class names.
 
 Composition means the checkout has a payment worker; it is not itself a payment subtype.
 
@@ -139,17 +175,17 @@ Composition means the checkout has a payment worker; it is not itself a payment 
 3. Create one checkout with CashPayment and another with TransferPayment; charge 600 through both.
 4. Check that checkout never asks which concrete payment class it has.
 
-**Check:** results distinguish cash and transfer while the Checkout code is identical. Replacing the worker only changes construction. Passing a worker missing pay should expose the interface problem rather than silently reporting success.
+**Test these cases before you call it finished:** results distinguish cash and transfer while the Checkout code is identical. Replacing the worker only changes construction. Passing a worker missing pay should expose the interface problem rather than silently reporting success.
 
-**Record:** the exact call, command or browser action; starting input; expected result above; actual output; and one sentence explaining the result. Use a fresh fixture whenever the instructions describe an independent case.
+**What to write in `answers.md`:** record: (1) what you ran, (2) the starting values, (3) what you expected, (4) what actually happened, and (5) one sentence explaining why. When a case is meant to be independent, create fresh objects so an earlier test cannot affect it.
 
-**Marks:** meeting the stated requirements 6, demonstrated cases with actual evidence 3, explanation 1. Manual criterion: `exercise_05`. The case-specific check above defines completion; a file merely existing earns no implementation points.
+**How this exercise is graded:** 6 points for the required implementation, 3 points for actually running and recording the required checks, and 1 point for your explanation. Manual criterion: `exercise_05`. Creating the file alone is not enough; the behaviour must work.
 
 ## Exercise 6: Protect stock - 10 points
 
 **Where:** `checkout.py`. Record results under Exercise 6 in `answers.md`.
 
-**Required outcome:** Have checkout validate the sale before calling payment and decrease stock only after simulated payment success. A failing payment raises an exception; show unchanged stock.
+**In simple terms — what you need to achieve:** Have checkout validate the sale before calling payment and decrease stock only after simulated payment success. A failing payment raises an exception; show unchanged stock.
 
 A refused payment must leave the stock ledger untouched.
 
@@ -158,17 +194,17 @@ A refused payment must leave the stock ledger untouched.
 3. Call pay(total). Deduct stock only after it returns successfully; let simulated RuntimeError propagate to the caller.
 4. Use Pen price 200, stock 4 with quantity 2. Repeat from fresh stock with a worker whose pay raises RuntimeError.
 
-**Check:** success charges 400 and leaves stock 2; refusal leaves 4. Quantity 5 leaves 4 and makes no payment call. This is local sequencing, not a real bank/database distributed transaction.
+**Test these cases before you call it finished:** success charges 400 and leaves stock 2; refusal leaves 4. Quantity 5 leaves 4 and makes no payment call. This is local sequencing, not a real bank/database distributed transaction.
 
-**Record:** the exact call, command or browser action; starting input; expected result above; actual output; and one sentence explaining the result. Use a fresh fixture whenever the instructions describe an independent case.
+**What to write in `answers.md`:** record: (1) what you ran, (2) the starting values, (3) what you expected, (4) what actually happened, and (5) one sentence explaining why. When a case is meant to be independent, create fresh objects so an earlier test cannot affect it.
 
-**Marks:** meeting the stated requirements 6, demonstrated cases with actual evidence 3, explanation 1. Manual criterion: `exercise_06`. The case-specific check above defines completion; a file merely existing earns no implementation points.
+**How this exercise is graded:** 6 points for the required implementation, 3 points for actually running and recording the required checks, and 1 point for your explanation. Manual criterion: `exercise_06`. Creating the file alone is not enough; the behaviour must work.
 
 ## Exercise 7: Use inheritance deliberately - 10 points
 
 **Where:** `products.py`. Record results under Exercise 7 in `answers.md`.
 
-**Required outcome:** Create a DiscountedProduct subtype with a value calculation that honours the base return type. Show base and subtype in one inventory list. Document discount bounds 0 through 100.
+**In simple terms — what you need to achieve:** Create a DiscountedProduct subtype with a value calculation that honours the base return type. Show base and subtype in one inventory list. Document discount bounds 0 through 100.
 
 Inheritance should preserve the operation that callers rely on.
 
@@ -176,17 +212,17 @@ Inheritance should preserve the operation that callers rely on.
 2. Override its value calculation to account for the discount, while returning a numeric amount as the base method does. Choose a rounding policy and document it; use exact whole-naira examples first.
 3. Put base Pen 200/4 and a 50%-discounted Pen 200/4 in one list and call inventory_value on both.
 
-**Check:** values are 800 and 400; 0% gives 800, 100% gives 0, invalid discounts reject. Explain why a subtype returning receipt text would violate the shared numeric contract.
+**Test these cases before you call it finished:** values are 800 and 400; 0% gives 800, 100% gives 0, invalid discounts reject. Explain why a subtype returning receipt text would violate the shared numeric contract.
 
-**Record:** the exact call, command or browser action; starting input; expected result above; actual output; and one sentence explaining the result. Use a fresh fixture whenever the instructions describe an independent case.
+**What to write in `answers.md`:** record: (1) what you ran, (2) the starting values, (3) what you expected, (4) what actually happened, and (5) one sentence explaining why. When a case is meant to be independent, create fresh objects so an earlier test cannot affect it.
 
-**Marks:** meeting the stated requirements 6, demonstrated cases with actual evidence 3, explanation 1. Manual criterion: `exercise_07`. The case-specific check above defines completion; a file merely existing earns no implementation points.
+**How this exercise is graded:** 6 points for the required implementation, 3 points for actually running and recording the required checks, and 1 point for your explanation. Manual criterion: `exercise_07`. Creating the file alone is not enough; the behaviour must work.
 
 ## Exercise 8: Explain the alternative - 10 points
 
 **Where:** `pricing.py`. Record results under Exercise 8 in `answers.md`.
 
-**Required outcome:** Replace the discount subtype with a composed pricing policy in a separate example. Compare changing policies at runtime and the number of classes needed.
+**In simple terms — what you need to achieve:** Replace the discount subtype with a composed pricing policy in a separate example. Compare changing policies at runtime and the number of classes needed.
 
 Composition offers another way to choose pricing without a new product subtype per policy.
 
@@ -195,17 +231,17 @@ Composition offers another way to choose pricing without a new product subtype p
 3. Calculate value for Pen 200/4 with a regular policy, then replace the policy with 50% off and calculate again.
 4. Compare this design with Exercise 7 in answers.md: where is discount validation, and what changes when a new policy is added?
 
-**Check:** values are 800 then 400, without creating a discount subtype for the second calculation. Document policy replacement explicitly; do not change stored stock to simulate a discount.
+**Test these cases before you call it finished:** values are 800 then 400, without creating a discount subtype for the second calculation. Document policy replacement explicitly; do not change stored stock to simulate a discount.
 
-**Record:** the exact call, command or browser action; starting input; expected result above; actual output; and one sentence explaining the result. Use a fresh fixture whenever the instructions describe an independent case.
+**What to write in `answers.md`:** record: (1) what you ran, (2) the starting values, (3) what you expected, (4) what actually happened, and (5) one sentence explaining why. When a case is meant to be independent, create fresh objects so an earlier test cannot affect it.
 
-**Marks:** meeting the stated requirements 6, demonstrated cases with actual evidence 3, explanation 1. Manual criterion: `exercise_08`. The case-specific check above defines completion; a file merely existing earns no implementation points.
+**How this exercise is graded:** 6 points for the required implementation, 3 points for actually running and recording the required checks, and 1 point for your explanation. Manual criterion: `exercise_08`. Creating the file alone is not enough; the behaviour must work.
 
 ## Exercise 9: Substitute a fake - 10 points
 
 **Where:** `checks.py`. Record results under Exercise 9 in `answers.md`.
 
-**Required outcome:** Create a FakePayment recording amounts and optionally failing. Demonstrate one successful and one rejected checkout without a bank or network. Include the recorded call list.
+**In simple terms — what you need to achieve:** Create a FakePayment recording amounts and optionally failing. Demonstrate one successful and one rejected checkout without a bank or network. Include the recorded call list.
 
 A fake payment worker makes checkout checks repeatable without a network.
 
@@ -214,11 +250,11 @@ A fake payment worker makes checkout checks repeatable without a network.
 3. Inject it into Checkout. Sell two Pens from stock 4 at price 200, then repeat with a fresh failing fake and product.
 4. Make an oversale attempt with another fresh fake to test validation order.
 
-**Check:** successful and refused payment attempts each record [400]; stock becomes 2 only after success. An oversale records [] because no payment was attempted. Explain why recording a call alone does not prove successful payment.
+**Test these cases before you call it finished:** successful and refused payment attempts each record [400]; stock becomes 2 only after success. An oversale records [] because no payment was attempted. Explain why recording a call alone does not prove successful payment.
 
-**Record:** the exact call, command or browser action; starting input; expected result above; actual output; and one sentence explaining the result. Use a fresh fixture whenever the instructions describe an independent case.
+**What to write in `answers.md`:** record: (1) what you ran, (2) the starting values, (3) what you expected, (4) what actually happened, and (5) one sentence explaining why. When a case is meant to be independent, create fresh objects so an earlier test cannot affect it.
 
-**Marks:** meeting the stated requirements 6, demonstrated cases with actual evidence 3, explanation 1. Manual criterion: `exercise_09`. The case-specific check above defines completion; a file merely existing earns no implementation points.
+**How this exercise is graded:** 6 points for the required implementation, 3 points for actually running and recording the required checks, and 1 point for your explanation. Manual criterion: `exercise_09`. Creating the file alone is not enough; the behaviour must work.
 
 ## Exercise 10: Verify new cases and explain a limitation — 10 points
 
@@ -232,7 +268,11 @@ A fake payment worker makes checkout checks repeatable without a network.
 4. Include exact commands/actions and observed outputs so someone else can repeat both cases (2 points).
 5. Explain a specific remaining limitation and a concrete next change to address it (2 points). If the checks pass, discuss an unhandled scenario or scope limitation; do not invent a failure.
 
-**Finished when:** a reader can repeat both checks and understand the limitation. Manual criterion: `exercise_10`. This is further verification, not two additional projects.
+**You are done when:** a reader can repeat both checks and understand the limitation. Manual criterion: `exercise_10`. This is further verification, not two additional projects.
+
+## Before grading
+
+Stop and ask yourself: **Can I explain the code I wrote, change one input without help, and predict the result?** If not, revisit the relevant teaching section before treating the assignment as complete.
 
 ## Save and grade offline
 
