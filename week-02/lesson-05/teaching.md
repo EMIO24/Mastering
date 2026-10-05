@@ -1,33 +1,293 @@
 # Lesson 5: Class behaviour
 
-**Goal:** Explain the concepts below and implement the seven practical stages in the assignment.
-**Prerequisite:** Complete Lesson 4; bring its EMIO24 work forward as a copy so earlier submissions remain reviewable.
-**Pace:** Allow 45–75 minutes for reading and experiments, then 2–4 hours for the ten exercises. Integration and deployment may need several sessions.
+**Goal:** Build on Lesson 4 and understand how classes control shared data, object display, validated attributes, and alternative constructors.
 
-## Start with an analogy
+Do not start by memorising `classmethod`, `property`, or dunder methods. Start from the problems they solve.
 
-Instance data is a note on one product card; class data is a notice on the stockroom wall. A mutable shared notice can accidentally collect changes from every card.
+## 1. What Lesson 4 gave us
 
-## Terminology in plain language
+```python
+class Product:
+    def __init__(self, name, price, stock):
+        self.name = name
+        self.price = price
+        self.stock = stock
 
-| Term | Technical meaning | Analogy |
-| --- | --- | --- |
-| Class attribute | A value stored on a class and found through attribute lookup. | a shared wall notice. |
-| Instance attribute | A value stored on one instance. | a note on one card. |
-| Property | Managed attribute access through methods. | a service window guarding a field. |
-| classmethod | A method receiving the class as its first argument. | a factory that knows which card design to use. |
-| __str__ | The method producing a human-readable string. | the label printed for a customer. |
+    def inventory_value(self):
+        return self.price * self.stock
+```
 
-These analogies explain one aspect of each concept. Use the technical definition when the analogy stops fitting; software still follows explicit rules rather than human judgement.
-For foundational words such as algorithm, process and interface, see the [course glossary](../../glossary.md).
+Each Product has separate instance data. Now we ask: what information should be shared? How should an object display itself? How can we control assignments such as `product.stock = -5`?
 
-## Worked example: predict, trace, then run
+## 2. Instance attributes versus class attributes
+
+These belong to each individual object:
+
+```python
+self.name = name
+self.price = price
+self.stock = stock
+```
+
+They are **instance attributes**.
+
+But suppose every Product uses Nigerian naira. Repeating this on every object is unnecessary. We can put shared/default information on the class:
 
 ```python
 class Product:
     currency = "NGN"
+
+    def __init__(self, name, price, stock):
+        self.name = name
+        self.price = price
+        self.stock = stock
+```
+
+`currency` is a **class attribute**.
+
+```python
+pen = Product("Pen", 200, 4)
+book = Product("Book", 500, 7)
+
+print(pen.currency)   # NGN
+print(book.currency)  # NGN
+```
+
+Mental model:
+
+```text
+Product class
+└── currency = "NGN"   shared/default lookup
+
+pen instance
+├── name = "Pen"
+├── price = 200
+└── stock = 4
+
+book instance
+├── name = "Book"
+├── price = 500
+└── stock = 7
+```
+
+Python can find `pen.currency` through the class when the instance does not have its own `currency`.
+
+## 3. Shadowing: an instance can have its own value
+
+```python
+pen.currency = "USD"
+
+print(pen.currency)   # USD
+print(book.currency)  # NGN
+print(Product.currency)  # NGN
+```
+
+You did not change the class attribute. You created/found an instance-level value on Pen that shadows the class value during lookup.
+
+This is why you must know **where authoritative state lives**.
+
+## 4. The mutable class attribute trap
+
+This is dangerous:
+
+```python
+class Product:
+    tags = []
+```
+
+That one list is shared through the class. Mutating it through one instance can appear through others.
+
+For per-object mutable data, create it in `__init__`:
+
+```python
+class Product:
+    def __init__(self):
+        self.tags = []
+```
+
+Now each instance receives its own list.
+
+Rule of thumb for this lesson: immutable shared configuration may fit a class attribute; mutable per-object state normally belongs on each instance.
+
+## 5. Why print(product) is not automatically useful
+
+Without a useful string representation:
+
+```python
+print(pen)
+```
+
+may show something like an object type and memory-oriented representation, not the business information a human wants.
+
+We can define `__str__`:
+
+```python
+class Product:
+    def __str__(self):
+        return f"{self.name}: {self.stock} units"
+```
+
+Then:
+
+```python
+print(pen)
+```
+
+can display:
+
+```text
+Pen: 4 units
+```
+
+`__str__` should **return a string**. It should not merely print.
+
+Think: `__str__` answers, “How should this object be represented for a human reader?”
+
+## 6. __repr__: useful developer representation
+
+`__repr__` is generally aimed at an unambiguous/useful developer representation:
+
+```python
+def __repr__(self):
+    return (
+        f"Product(name={self.name!r}, "
+        f"price={self.price!r}, stock={self.stock!r})"
+    )
+```
+
+Then compare:
+
+```python
+print(str(pen))
+print(repr(pen))
+```
+
+A practical mental model:
+- `str`: friendly human-facing description;
+- `repr`: developer/debugging-oriented description.
+
+They are methods, and `self` still means the particular object being represented.
+
+## 7. The problem with direct assignment
+
+Lesson 4 validation can ensure construction starts valid:
+
+```python
+pen = Product("Pen", 200, 4)
+```
+
+But later somebody might do:
+
+```python
+pen.stock = -100
+```
+
+If stock is just a public attribute with no control, the object can become invalid after construction.
+
+A **property** lets normal-looking attribute access run controlled logic.
+
+## 8. Property from the ground up
+
+We store the actual value in `_stock` and expose `stock` through a property:
+
+```python
+class Product:
+    def __init__(self, name, stock):
+        self.name = name
+        self.stock = stock
+
+    @property
+    def stock(self):
+        return self._stock
+
+    @stock.setter
+    def stock(self, value):
+        if type(value) is not int or value < 0:
+            raise ValueError("Stock must be a nonnegative integer.")
+        self._stock = value
+```
+
+Now:
+
+```python
+pen.stock = 5
+```
+
+looks like ordinary assignment, but Python routes it through the setter.
+
+If:
+
+```python
+pen.stock = -5
+```
+
+the setter raises before changing `_stock`.
+
+Important: `_stock` is a naming convention meaning “internal implementation detail”; the underscore is not a security barrier.
+
+## 9. Why __init__ can use self.stock
+
+Notice:
+
+```python
+def __init__(self, name, stock):
+    self.name = name
+    self.stock = stock
+```
+
+Because `stock` is a property, `self.stock = stock` uses the setter during initialization too. That lets one validation rule protect both initial and later assignments.
+
+## 10. classmethod: behaviour about the class
+
+Instance methods receive `self`:
+
+```python
+def inventory_value(self):
+    ...
+```
+
+A **class method** receives the class, conventionally called `cls`:
+
+```python
+@classmethod
+def from_dict(cls, data):
+    return cls(data["name"], data["price"], data["stock"])
+```
+
+Use:
+
+```python
+data = {"name": "Pen", "price": 200, "stock": 4}
+pen = Product.from_dict(data)
+```
+
+Why `cls(...)` rather than hard-coding `Product(...)`? The method is written in terms of the class it was called on, which becomes useful with subclasses later.
+
+A common use of class methods is an **alternative constructor**: another convenient route for creating an object from a different input format.
+
+## 11. Instance method versus class method
+
+```text
+instance method
+    receives self
+    works with a particular object
+
+class method
+    receives cls
+    works with the class / often creates objects
+```
+
+Do not choose based on syntax. Ask: “Does this behaviour need one particular Product, or does it concern the Product class/construction?”
+
+## 12. Worked example
+
+```python
+class Product:
+    currency = "NGN"
+
     def __init__(self, name):
         self.name = name
+
     def __str__(self):
         return f"{self.name} ({self.currency})"
 
@@ -35,43 +295,74 @@ p = Product("Pen")
 print(str(p))
 ```
 
-currency is looked up on the class because p has no currency attribute of its own. __str__ returns text; print then displays that text. Use properties when assignments need validation, rather than adding getters for every field.
+Before running:
+1. Which attribute is stored on `p`?
+2. Where is `currency` stored?
+3. Why can `self.currency` still find it?
+4. What exact text does `__str__` return?
 
-**Prediction:** Enter the exact text printed, without a newline.
-Write your answer before running the example. Then trace which statement or rule causes each part of the result.
+## 13. Putting the ideas together
 
-## Guided build
+```python
+class Product:
+    currency = "NGN"
 
-### Step 1: Shared and separate data
+    def __init__(self, name, price, stock):
+        self.name = name
+        self.price = price
+        self.stock = stock
 
-Extend Product with class currency = "NGN" and per-instance stock. Change stock on one of two products; show the other is unchanged and both initially use NGN.
+    @property
+    def stock(self):
+        return self._stock
 
-### Step 2: Display a product
+    @stock.setter
+    def stock(self, value):
+        if type(value) is not int or value < 0:
+            raise ValueError("Stock must be a nonnegative integer.")
+        self._stock = value
 
-Implement __str__ returning "Pen: 4 units" for name Pen and stock 4. Check zero stock and a different name. Keep printing outside the method.
+    def __str__(self):
+        return f"{self.name}: {self.stock} units"
 
-### Step 3: Useful debugging text
+    def __repr__(self):
+        return f"Product(name={self.name!r}, price={self.price!r}, stock={self.stock!r})"
 
-Implement __repr__ including class name, name, price and stock. Show repr(product) and str(product), and explain which reader each helps.
+    @classmethod
+    def from_dict(cls, data):
+        return cls(data["name"], data["price"], data["stock"])
+```
 
-### Step 4: Guard stock assignment
+Do not read this as one giant block. Identify each responsibility:
+- shared/default class data;
+- instance initialization;
+- controlled stock access;
+- human display;
+- debugging display;
+- alternate construction.
 
-Use a stock property backed by _stock. Reject negatives, text, fractions and bool; allow 0. Attempt an invalid assignment and show the previous value remains intact.
+## 14. Vocabulary
 
-Work through these stages in order: start from the smallest successful case, inspect the result, then add rejected-input cases. The assignment completes the remaining stages and records evidence.
+- **Instance attribute:** value stored on one object.
+- **Class attribute:** value stored on the class and available through attribute lookup.
+- **Property:** managed attribute access implemented through methods/descriptors.
+- **Getter:** logic used when reading a managed value.
+- **Setter:** logic used when assigning a managed value.
+- **classmethod:** method receiving the class as `cls`.
+- **__str__:** human-readable string representation.
+- **__repr__:** developer-oriented representation.
 
-## Debugging practice
+## 15. Understanding checkpoint
 
-If the result differs from your prediction, record expected and actual values before changing code. Check the input type, the boundary condition and where the authoritative state lives. For this lesson, pay particular attention to this rule: currency is looked up on the class because p has no currency attribute of its own.
+Explain without copying definitions:
 
-Change one value or condition in the example, predict the result again, and explain whether the analogy still fits. Do not change several things at once: you need to know which change caused the difference.
+1. Why should Pen's stock usually be an instance attribute rather than a class attribute?
+2. What happens if Pen shadows `currency` with its own value?
+3. Why can a mutable list on a class create surprising behaviour?
+4. Why must `__str__` return text rather than only print it?
+5. What problem does a stock property solve?
+6. Why does validation happen before `_stock` changes?
+7. Difference between `self` and `cls`?
+8. Why might `from_dict` be a classmethod?
 
-## Check your understanding
-
-- Define every term above without copying the table, then give a new everyday analogy.
-- Explain the worked example one line at a time, including its setup requirements.
-- Demonstrate one successful operation and one failure or boundary case from the guided build.
-- Explain where the analogy breaks and what the precise software rule says instead.
-
-Continue with the [ten-exercise assignment](../assignments/lesson-05/README.md).
-See [setup and offline preparation](../../SETUP.md), [week references](../references.md) and the [offline checker guide](../../grading/README.md).
+Continue with the [ten-exercise assignment](../assignments/lesson-05/README.md). Use the [week references](../references.md), [setup guide](../../SETUP.md), and [offline checker guide](../../grading/README.md).
