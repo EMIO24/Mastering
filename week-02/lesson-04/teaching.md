@@ -1,27 +1,310 @@
 # Lesson 4: Classes, objects and instances
 
-**Goal:** Explain the concepts below and implement the seven practical stages in the assignment.
-**Prerequisite:** Complete Lesson 3; bring its EMIO24 work forward as a copy so earlier submissions remain reviewable.
-**Pace:** Allow 45–75 minutes for reading and experiments, then 2–4 hours for the ten exercises. Integration and deployment may need several sessions.
+**Goal:** Understand why classes exist, then explain and use classes, objects/instances, attributes, methods, `self`, and `__init__` without memorising syntax.
 
-## Start with an analogy
+**Prerequisite:** Lesson 3 concepts such as functions, validation, exceptions, and state are useful here. This lesson deliberately connects OOP to those ideas.
 
-A product class is a blank stock card design; each object is a separately filled card. Changing one card does not change the others. Unlike paper, objects also expose behaviour through methods.
+## 1. Start with what you already know
 
-## Terminology in plain language
+Before classes, you can represent a product with a dictionary:
 
-| Term | Technical meaning | Analogy |
-| --- | --- | --- |
-| Class | A definition used to create objects. | the blank stock card design. |
-| Instance | One object created from a class. | one filled card. |
-| Attribute | A value associated with an object. | the stock field on a card. |
-| Method | A function accessed through an object or class. | a stock-card operation. |
-| self | The instance passed to an instance method. | the particular card being handled. |
+```python
+pen = {"name": "Pen", "price": 200, "stock": 4}
+```
 
-These analogies explain one aspect of each concept. Use the technical definition when the analogy stops fitting; software still follows explicit rules rather than human judgement.
-For foundational words such as algorithm, process and interface, see the [course glossary](../../glossary.md).
+And write functions that operate on it:
 
-## Worked example: predict, trace, then run
+```python
+def inventory_value(product):
+    return product["price"] * product["stock"]
+
+def restock(product, quantity):
+    product["stock"] += quantity
+```
+
+This is valid Python. Classes do not exist because dictionaries or functions are bad. A class gives us another way to organise **related data and related behaviour**.
+
+## 2. Function versus class
+
+A function mainly describes an action:
+
+```python
+def calculate_value(price, stock):
+    return price * stock
+```
+
+Think: **inputs -> action -> result**.
+
+A class describes a kind of thing from which objects can be created:
+
+```python
+class Product:
+    pass
+```
+
+Think: **definition -> create individual objects -> each object can hold its own data and use related behaviour**.
+
+A class can contain functions. A function associated with a class is called a **method**.
+
+## 3. Class versus object versus instance
+
+```python
+class Product:
+    pass
+
+pen = Product()
+book = Product()
+```
+
+- `Product` is the **class**: the definition.
+- `pen` is an **object** created from Product.
+- `book` is another object.
+- Saying “pen is an **instance of Product**” means pen is an object created from that class.
+
+Mental model:
+
+```text
+             Product
+              class
+             /     \
+            /       \
+          pen       book
+        instance   instance
+```
+
+The class is not Pen or Book. It defines the kind of object they are.
+
+## 4. Giving each object its own data
+
+Empty objects are not useful enough. We want:
+
+```text
+pen:  name="Pen",  price=200, stock=4
+book: name="Book", price=500, stock=7
+```
+
+Python commonly initializes this data with `__init__`:
+
+```python
+class Product:
+    def __init__(self, name, price, stock):
+        self.name = name
+        self.price = price
+        self.stock = stock
+```
+
+Now:
+
+```python
+pen = Product("Pen", 200, 4)
+book = Product("Book", 500, 7)
+```
+
+Each call creates a different Product object.
+
+## 5. Understand self before memorising it
+
+`self` means **the particular instance this method is currently working with**.
+
+When this runs:
+
+```python
+pen = Product("Pen", 200, 4)
+```
+
+inside `__init__`, conceptually:
+
+```text
+self  -> the new pen object
+name  -> "Pen"
+price -> 200
+stock -> 4
+```
+
+So:
+
+```python
+self.name = name
+```
+
+means: take the incoming `name` value and store it as an attribute on this particular object.
+
+The two sides are different:
+
+- right side `name`: parameter received by the method;
+- left side `self.name`: attribute stored on the object.
+
+Likewise `self.stock = stock` stores the incoming stock on that object.
+
+## 6. Attributes
+
+An **attribute** is a value associated with an object.
+
+```python
+print(pen.name)   # Pen
+print(pen.price)  # 200
+print(pen.stock)  # 4
+```
+
+Changing one object's attribute does not automatically change another object's attribute:
+
+```python
+pen.stock = 10
+print(pen.stock)   # 10
+print(book.stock)  # 7
+```
+
+Why? Pen and Book are different instances with separate instance state.
+
+## 7. Methods: functions connected to objects
+
+Start with an ordinary function:
+
+```python
+def inventory_value(price, stock):
+    return price * stock
+```
+
+Now place the behaviour on Product:
+
+```python
+class Product:
+    def __init__(self, name, price, stock):
+        self.name = name
+        self.price = price
+        self.stock = stock
+
+    def inventory_value(self):
+        return self.price * self.stock
+```
+
+Then:
+
+```python
+pen = Product("Pen", 200, 4)
+print(pen.inventory_value())  # 800
+```
+
+When `pen.inventory_value()` runs, `self` refers to `pen`. Therefore `self.price` is 200 and `self.stock` is 4.
+
+The same method works for Book using Book's state:
+
+```python
+book = Product("Book", 500, 7)
+print(book.inventory_value())  # 3500
+```
+
+## 8. Methods can change object state
+
+```python
+class Product:
+    def __init__(self, name, price, stock):
+        self.name = name
+        self.price = price
+        self.stock = stock
+
+    def restock(self, quantity):
+        self.stock += quantity
+```
+
+Trace:
+
+```python
+pen = Product("Pen", 200, 4)
+pen.restock(3)
+print(pen.stock)  # 7
+```
+
+Inside `restock`:
+
+```text
+self -> pen
+quantity -> 3
+self.stock += quantity
+4 + 3 -> 7
+```
+
+**State** is the current data an object holds. Pen's stock state changed from 4 to 7.
+
+## 9. __init__ precisely
+
+People often call `__init__` the constructor. For this course, understand the more precise sequence:
+
+1. Calling `Product(...)` starts object creation.
+2. `__new__` creates the instance (normally inherited; you do not need to write it here).
+3. Python passes that new instance to `__init__` as `self`.
+4. `__init__` initializes its attributes.
+5. The created object is returned by the class call and assigned to a variable.
+
+Do not manually call `pen.__init__(...)` to create another product. Create another object with `Product(...)`.
+
+## 10. References and aliases
+
+This creates a new object:
+
+```python
+book = Product("Book", 500, 7)
+```
+
+This does **not**:
+
+```python
+alias = pen
+```
+
+Now `alias` and `pen` refer to the same object:
+
+```python
+alias.stock = 99
+print(pen.stock)  # 99
+```
+
+This distinction matters when debugging mutation.
+
+## 11. Bring Week 1 validation forward
+
+Objects still need valid data:
+
+```python
+class Product:
+    def __init__(self, name, price, stock):
+        if not isinstance(name, str) or not name.strip():
+            raise ValueError("Name cannot be blank.")
+        if type(price) is not int or price < 0:
+            raise ValueError("Price must be a nonnegative integer.")
+        if type(stock) is not int or stock < 0:
+            raise ValueError("Stock must be a nonnegative integer.")
+
+        self.name = name
+        self.price = price
+        self.stock = stock
+```
+
+Notice the connection:
+
+```text
+Week 1: validation + exceptions + state + functions
+                         |
+                         v
+Week 2: objects with validated state + methods
+```
+
+Zero price and zero stock are valid because **nonnegative** means greater than or equal to zero. `bool` is deliberately rejected by exact type checks.
+
+## 12. Protect a state-changing method
+
+The assignment asks for positive integer restocking:
+
+```python
+def restock(self, quantity):
+    if type(quantity) is not int or quantity <= 0:
+        raise ValueError("Quantity must be a positive integer.")
+    self.stock += quantity
+```
+
+Validation happens before mutation. If quantity is invalid, stock remains unchanged. This is the same validation-first principle from Week 1.
+
+## 13. Worked example: predict before running
 
 ```python
 class Product:
@@ -35,57 +318,49 @@ pen.stock -= 1
 print(pen.stock, book.stock)
 ```
 
-`__init__` initializes a newly created instance. Each assignment to self stores data on that instance. The two calls to Product create different objects, so changing pen leaves book at 7. A second name assigned to pen would refer to the same object.
+Before running it, answer:
+1. How many objects are created?
+2. What does `self` refer to during each initialization?
+3. Which object's state changes?
+4. What exactly will print, and why?
 
-### Constructor: make a card, then fill it in
+Then run it and compare prediction with reality.
 
-A **constructor** is the mechanism used to create and initialize an object. Think of ordering a new stock card: first obtain a blank card, then fill in its name and starting stock. In the example, `Product("Pen", 4)` starts that process.
+## 14. Vocabulary you must be able to explain
 
-For this ordinary Python class, the steps are:
+- **Class:** definition used to create objects.
+- **Object:** an individual runtime object.
+- **Instance:** an object considered as belonging to a particular class.
+- **Attribute:** data associated with an object/class.
+- **Method:** function associated with a class/object.
+- **self:** the current instance supplied to an instance method.
+- **State:** current data held by an object.
+- **Initialization:** setting up a newly created object's starting state.
 
-1. **`__new__` creates the instance**: like making the blank card. Product inherits this behaviour; you do not need to write it for this lesson.
-2. **`__init__` initializes that instance**: like filling the card. Python supplies the new object as `self`, while `"Pen"` and `4` become `name` and `stock`.
-3. **The class call returns the object**, which is assigned to `pen`. The initializer itself must return `None`; normally you leave out a return statement.
+Do not merely memorise these sentences. Explain each using Product/Pen.
 
-People often call `__init__` the constructor. More precisely, it is the **initializer**: the object already exists when it runs. Do not call `pen.__init__(...)` to create a separate product; call `Product(...)` again.
+## 15. Guided build
 
-**Try it:** add `print("Initializing", name)` inside `__init__`. Predict what prints when you create Pen and Book. Then set `alias = pen`: does that initialize another object? It does not; alias refers to the existing object.
+Build in this order:
 
-**Prediction:** After the example runs, enter the two stocks as a JSON list, in pen/book order.
-Write your answer before running the example. Then trace which statement or rule causes each part of the result.
+1. `Product(name, price, stock)`; create Pen 200/4 and Book 500/7.
+2. Print attributes and prove the objects are separate.
+3. Add `inventory_value(self)`; Pen should return 800.
+4. Validate construction; reject blank names and negative price/stock while allowing zero.
+5. Add `restock(quantity)`; require a positive integer and reject bool.
+6. Test success and failure. Confirm failed validation does not change state.
+7. Try `alias = pen` and explain why changing alias changes pen.
 
-## Guided build
+## Understanding checkpoint
 
-### Step 1: Create stock cards
+Before the assignment, you should be able to answer without notes:
 
-In product.py implement Product(name, price, stock). Store all three attributes. Create Pen at 200/4 and Book at 500/7; show each attribute and prove the instances differ.
+1. Why might we use a class when dictionaries and functions already work?
+2. What is the difference between `Product` and `pen`?
+3. Explain `self.name = name` from both sides of the equals sign.
+4. Why does changing `pen.stock` not change `book.stock`?
+5. Why does changing `alias.stock` change `pen.stock` after `alias = pen`?
+6. What makes `inventory_value` a method rather than an ordinary standalone function?
+7. Why validate before changing stock?
 
-### Step 2: Calculate value
-
-Add inventory_value(self) returning price * stock. Pen initially returns 800; a zero-stock product returns 0. Return a number rather than only printing.
-
-### Step 3: Protect construction
-
-Reject blank names and negative prices or stock with ValueError. Accept zero price and stock. Demonstrate a valid object and each rejected field.
-
-### Step 4: Restock
-
-Add restock(quantity), requiring a positive integer and rejecting bool. Starting at 4, adding 3 leaves 7; adding 0 or -1 raises ValueError and leaves 7.
-
-Work through these stages in order: start from the smallest successful case, inspect the result, then add rejected-input cases. The assignment completes the remaining stages and records evidence.
-
-## Debugging practice
-
-If the result differs from your prediction, record expected and actual values before changing code. Check the input type, the boundary condition and where the authoritative state lives. For this lesson, pay particular attention to this rule: `__init__` initializes a newly created instance.
-
-Change one value or condition in the example, predict the result again, and explain whether the analogy still fits. Do not change several things at once: you need to know which change caused the difference.
-
-## Check your understanding
-
-- Define every term above without copying the table, then give a new everyday analogy.
-- Explain the worked example one line at a time, including its setup requirements.
-- Demonstrate one successful operation and one failure or boundary case from the guided build.
-- Explain where the analogy breaks and what the precise software rule says instead.
-
-Continue with the [ten-exercise assignment](../assignments/lesson-04/README.md).
-See [setup and offline preparation](../../SETUP.md), [week references](../references.md) and the [offline checker guide](../../grading/README.md).
+Continue with the [ten-exercise assignment](../assignments/lesson-04/README.md). Use the [week references](../references.md), [setup guide](../../SETUP.md), and [offline checker guide](../../grading/README.md) when needed.
