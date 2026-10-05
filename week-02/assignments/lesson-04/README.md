@@ -1,5 +1,7 @@
 # Lesson 4 assignment: Classes, objects and instances
 
+> **How to use this assignment:** Do one exercise at a time. Do not try to understand all ten at once. For every exercise, first read **What you are learning**, then **What to do**, then run the listed checks. Only after the code behaves correctly should you record the evidence. If a technical word is unfamiliar, return to this lesson's teaching notes before coding.
+
 **10 exercises · 10 points each · 100 points total.** Work through them in order. Each practical exercise has individually written steps and concrete checks, with its inputs, expected outcomes and common mistakes explained below.
 
 ## What you are building and why
@@ -38,23 +40,57 @@ If a step explicitly names another file, create that too. If an exercise changes
 | **Method** | A function accessed through an object or class. | a stock-card operation. |
 | **self** | The instance passed to an instance method. | the particular card being handled. |
 
-A **fixture** is known starting data, like a prepared sample shelf. A **boundary case** lies at the edge of a rule, such as requesting exactly the available stock. **Expected** is what the rule says should happen; **actual** is what you observed. A **criterion** is one part of the marking scheme. An **artefact** is a file or concrete result you created. **Demonstrate** means carry out the action and record its actual result, not merely say that it works.
+### Assignment words in simpler English
+
+- **Fixture:** the known starting data you use for a test. Example: Pen starts with stock 4.
+- **Boundary case:** a value exactly at the edge of a rule. Example: selling all 4 items when stock is 4.
+- **Expected result:** what you predict should happen before you run the code.
+- **Actual result:** what really happened when you ran it.
+- **Criterion:** one thing the marker is checking.
+- **Artefact:** a real file or output you created.
+- **Demonstrate:** actually run the code and show the result. Writing “it works” is not evidence.
 
 ## Exercise 1: Explain the five terms — 10 points
 
-**Where:** Exercise 1 in `answers.md`.
+**Where to work:** under `## Exercise 1` in `answers.md`.
 
-1. Read the five topic terms above, then explain each in your own words.
-2. Give an everyday analogy for each and map its parts explicitly. For example: “A function is like a service counter: arguments are the order and the returned value is the item handed back.” Use this form with this lesson's terms.
-3. Explain one point where one of your analogies stops fitting the precise rule. Software cannot infer missing instructions through human judgement.
+### What you are learning
 
-**Finished when:** all five terms have an accurate meaning and mapped analogy. Each earns 1 point for meaning and 1 for mapping. Manual criterion: `exercise_01`.
+This exercise checks whether you understand the lesson's five main terms. You are **not** being tested on memorising the definition word-for-word.
+
+### What to do
+
+For each of the five terms listed above:
+
+1. Explain it in your own words, as if you were explaining it to another beginner.
+2. Give one everyday example or analogy.
+3. Explain how the analogy connects to the programming idea.
+
+After all five, choose **one** analogy and explain one way the real Python concept is more precise than the analogy.
+
+### Example of the style expected
+
+Do not copy this as one of your answers:
+
+> A function is like a service counter. You give the counter an order (arguments), work happens, and you may receive something back (return value). The analogy is imperfect because a Python function follows exact programmed instructions rather than human judgement.
+
+### You are done when
+
+You have five explanations in your own words, five connected examples/analogies, and one limitation of an analogy.
+
+**Points:** 10 total — 2 points per term (1 for the meaning, 1 for showing that you understand it through the example). Manual criterion: `exercise_01`.
 
 ## Exercise 2: Predict and check the worked example — 10 points
 
 **Where:** `exercise_02` in `submission.json`; reasoning in `answers.md`.
 
-Use this exact example and the input/conditions in the question. This may be a code fragment or a message/query to trace. Use the setup above and the explanation below to place it correctly.
+### What you are learning
+
+This checks whether you can read code and predict what it will do **before** Python tells you the answer.
+
+### What to do
+
+Read the code below, but do not run it yet.
 
 ```python
 class Product:
@@ -70,13 +106,13 @@ print(pen.stock, book.stock)
 
 **Question:** After the example runs, enter the two stocks as a JSON list, in pen/book order.
 
-1. Read the example and question before executing. Identify the supplied values.
-2. Work out the requested result. Follow the question's answer shape: number, string, Boolean, list or object.
-3. Keep the `"exercise_02"` key in submission.json and replace its `null` value. JSON strings need double quotes; Booleans are lowercase `true`/`false`. Do not add comments or a trailing comma.
-4. Write your reasoning separately under Exercise 2 in answers.md.
-5. Run in the required environment, or trace the message/query for a design example. Compare actual and predicted results; explain any correction.
+1. Predict the answer on your own first.
+2. Write **why** you expect that answer under Exercise 2 in `answers.md`.
+3. Run the code and compare the real result with your prediction.
+4. In `submission.json`, replace only the `null` beside `"exercise_02"` with the required answer. Keep the file valid JSON.
+5. If your prediction was wrong, keep a short note in `answers.md` explaining what you misunderstood and what rule corrected your thinking.
 
-For an unrelated question whose answer is 12, the file would be `{"exercise_02": 12}`. **12 illustrates the format; it is not this lesson's answer.**
+**Important:** do not put explanations inside `submission.json`. That file holds only the machine-checkable answer. Your reasoning belongs in `answers.md`.
 
 <details>
 <summary>Worked-example explanation — read after predicting</summary>
@@ -99,13 +135,13 @@ People often call `__init__` the constructor. More precisely, it is the **initia
 
 </details>
 
-**Finished when:** valid JSON contains the requested answer and reasoning is saved separately. The checker awards 10 automatic points for the exact final prediction (`exercise_02`). It does not verify reasoning or practical code through this answer.
+**You are done when:** valid JSON contains the requested answer and reasoning is saved separately. The checker awards 10 automatic points for the exact final prediction (`exercise_02`). It does not verify reasoning or practical code through this answer.
 
 ## Exercise 3: Create stock cards - 10 points
 
 **Where:** `product.py`. Record results under Exercise 3 in `answers.md`.
 
-**Required outcome:** In product.py implement Product(name, price, stock). Store all three attributes. Create Pen at 200/4 and Book at 500/7; show each attribute and prove the instances differ.
+**In simple terms — what you need to achieve:** In product.py implement Product(name, price, stock). Store all three attributes. Create Pen at 200/4 and Book at 500/7; show each attribute and prove the instances differ.
 
 A class is a stock-card design. Calling it makes a particular card.
 
@@ -113,17 +149,17 @@ A class is a stock-card design. Calling it makes a particular card.
 2. In checks.py import Product. Create `pen = Product("Pen", 200, 4)` and `book = Product("Book", 500, 7)`.
 3. Print each object's three attributes, then print `pen is book`. `is` checks identity, not matching field values.
 
-**Check:** Pen prints Pen/200/4; Book prints Book/500/7; identity prints `False`. `__init__` initializes the object and should not return the object. Python normally inherits `__new__`, which creates it.
+**Test these cases before you call it finished:** Pen prints Pen/200/4; Book prints Book/500/7; identity prints `False`. `__init__` initializes the object and should not return the object. Python normally inherits `__new__`, which creates it.
 
-**Record:** the exact call, command or browser action; starting input; expected result above; actual output; and one sentence explaining the result. Use a fresh fixture whenever the instructions describe an independent case.
+**What to write in `answers.md`:** record: (1) what you ran, (2) the starting values, (3) what you expected, (4) what actually happened, and (5) one sentence explaining why. When a case is meant to be independent, create fresh objects so an earlier test cannot affect it.
 
-**Marks:** meeting the stated requirements 6, demonstrated cases with actual evidence 3, explanation 1. Manual criterion: `exercise_03`. The case-specific check above defines completion; a file merely existing earns no implementation points.
+**How this exercise is graded:** 6 points for the required implementation, 3 points for actually running and recording the required checks, and 1 point for your explanation. Manual criterion: `exercise_03`. Creating the file alone is not enough; the behaviour must work.
 
 ## Exercise 4: Calculate value - 10 points
 
 **Where:** `product.py`. Record results under Exercise 4 in `answers.md`.
 
-**Required outcome:** Add inventory_value(self) returning price * stock. Pen initially returns 800; a zero-stock product returns 0. Return a number rather than only printing.
+**In simple terms — what you need to achieve:** Add inventory_value(self) returning price * stock. Pen initially returns 800; a zero-stock product returns 0. Return a number rather than only printing.
 
 Inventory value means the selling value of all units still on one card.
 
@@ -137,17 +173,17 @@ Inventory value means the selling value of all units still on one card.
 | Book, price 500, stock 7 | 3500 |
 | Bag, price 4000, stock 0 | 0 |
 
-**Check:** changing a price in a new object changes its result. Forgetting parentheses gives you a method reference, not the computed total.
+**Test these cases before you call it finished:** changing a price in a new object changes its result. Forgetting parentheses gives you a method reference, not the computed total.
 
-**Record:** the exact call, command or browser action; starting input; expected result above; actual output; and one sentence explaining the result. Use a fresh fixture whenever the instructions describe an independent case.
+**What to write in `answers.md`:** record: (1) what you ran, (2) the starting values, (3) what you expected, (4) what actually happened, and (5) one sentence explaining why. When a case is meant to be independent, create fresh objects so an earlier test cannot affect it.
 
-**Marks:** meeting the stated requirements 6, demonstrated cases with actual evidence 3, explanation 1. Manual criterion: `exercise_04`. The case-specific check above defines completion; a file merely existing earns no implementation points.
+**How this exercise is graded:** 6 points for the required implementation, 3 points for actually running and recording the required checks, and 1 point for your explanation. Manual criterion: `exercise_04`. Creating the file alone is not enough; the behaviour must work.
 
 ## Exercise 5: Protect construction - 10 points
 
 **Where:** `product.py`. Record results under Exercise 5 in `answers.md`.
 
-**Required outcome:** Reject blank names and negative prices or stock with ValueError. Accept zero price and stock. Demonstrate a valid object and each rejected field.
+**In simple terms — what you need to achieve:** Reject blank names and negative prices or stock with ValueError. Accept zero price and stock. Demonstrate a valid object and each rejected field.
 
 A stock card should not be issued with unusable starting values.
 
@@ -156,17 +192,17 @@ A stock card should not be issued with unusable starting values.
 3. Raise `ValueError` before assigning attributes when a rule fails. Normal successful initialization needs no return statement.
 4. Wrap each invalid construction in `try/except ValueError` in checks.py so all cases can run.
 
-**Check:** blank name, name containing only spaces, price -1 and stock -1 each reject. `Product("Gift", 0, 0)` succeeds. Record which input failed; do not turn a failed construction into a partially usable product.
+**Test these cases before you call it finished:** blank name, name containing only spaces, price -1 and stock -1 each reject. `Product("Gift", 0, 0)` succeeds. Record which input failed; do not turn a failed construction into a partially usable product.
 
-**Record:** the exact call, command or browser action; starting input; expected result above; actual output; and one sentence explaining the result. Use a fresh fixture whenever the instructions describe an independent case.
+**What to write in `answers.md`:** record: (1) what you ran, (2) the starting values, (3) what you expected, (4) what actually happened, and (5) one sentence explaining why. When a case is meant to be independent, create fresh objects so an earlier test cannot affect it.
 
-**Marks:** meeting the stated requirements 6, demonstrated cases with actual evidence 3, explanation 1. Manual criterion: `exercise_05`. The case-specific check above defines completion; a file merely existing earns no implementation points.
+**How this exercise is graded:** 6 points for the required implementation, 3 points for actually running and recording the required checks, and 1 point for your explanation. Manual criterion: `exercise_05`. Creating the file alone is not enough; the behaviour must work.
 
 ## Exercise 6: Restock - 10 points
 
 **Where:** `product.py`. Record results under Exercise 6 in `answers.md`.
 
-**Required outcome:** Add restock(quantity), requiring a positive integer and rejecting bool. Starting at 4, adding 3 leaves 7; adding 0 or -1 raises ValueError and leaves 7.
+**In simple terms — what you need to achieve:** Add restock(quantity), requiring a positive integer and rejecting bool. Starting at 4, adding 3 leaves 7; adding 0 or -1 raises ValueError and leaves 7.
 
 Restocking adds a delivery to the existing card.
 
@@ -180,17 +216,17 @@ Restocking adds a delivery to the existing card.
 | Restock 3 | 7 |
 | Attempt 0, -1, 2.5 or True | Remains 7; each raises ValueError |
 
-**Check:** you incremented stock rather than overwriting it with the delivery quantity.
+**Test these cases before you call it finished:** you incremented stock rather than overwriting it with the delivery quantity.
 
-**Record:** the exact call, command or browser action; starting input; expected result above; actual output; and one sentence explaining the result. Use a fresh fixture whenever the instructions describe an independent case.
+**What to write in `answers.md`:** record: (1) what you ran, (2) the starting values, (3) what you expected, (4) what actually happened, and (5) one sentence explaining why. When a case is meant to be independent, create fresh objects so an earlier test cannot affect it.
 
-**Marks:** meeting the stated requirements 6, demonstrated cases with actual evidence 3, explanation 1. Manual criterion: `exercise_06`. The case-specific check above defines completion; a file merely existing earns no implementation points.
+**How this exercise is graded:** 6 points for the required implementation, 3 points for actually running and recording the required checks, and 1 point for your explanation. Manual criterion: `exercise_06`. Creating the file alone is not enough; the behaviour must work.
 
 ## Exercise 7: Sell - 10 points
 
 **Where:** `product.py`. Record results under Exercise 7 in `answers.md`.
 
-**Required outcome:** Add sell(quantity). Require a positive integer no greater than stock; return the sale total. Selling 2 at 200 leaves stock 5 after the restock and returns 400. Overselling leaves stock unchanged.
+**In simple terms — what you need to achieve:** Add sell(quantity). Require a positive integer no greater than stock; return the sale total. Selling 2 at 200 leaves stock 5 after the restock and returns 400. Overselling leaves stock unchanged.
 
 Selling both changes stock and hands a numeric total back to the caller.
 
@@ -199,17 +235,17 @@ Selling both changes stock and hands a numeric total back to the caller.
 3. Subtract quantity and return price multiplied by quantity.
 4. For the sequential check, create Pen stock 4, restock 3, then sell 2. For boundary checks, create fresh objects.
 
-**Check:** the sequential sale returns 400 and leaves stock 5. Selling all 4 units of a fresh Pen returns 800 and leaves 0. Selling 5 from fresh stock 4 raises ValueError and leaves 4. Printing a receipt without returning the number does not meet the contract.
+**Test these cases before you call it finished:** the sequential sale returns 400 and leaves stock 5. Selling all 4 units of a fresh Pen returns 800 and leaves 0. Selling 5 from fresh stock 4 raises ValueError and leaves 4. Printing a receipt without returning the number does not meet the contract.
 
-**Record:** the exact call, command or browser action; starting input; expected result above; actual output; and one sentence explaining the result. Use a fresh fixture whenever the instructions describe an independent case.
+**What to write in `answers.md`:** record: (1) what you ran, (2) the starting values, (3) what you expected, (4) what actually happened, and (5) one sentence explaining why. When a case is meant to be independent, create fresh objects so an earlier test cannot affect it.
 
-**Marks:** meeting the stated requirements 6, demonstrated cases with actual evidence 3, explanation 1. Manual criterion: `exercise_07`. The case-specific check above defines completion; a file merely existing earns no implementation points.
+**How this exercise is graded:** 6 points for the required implementation, 3 points for actually running and recording the required checks, and 1 point for your explanation. Manual criterion: `exercise_07`. Creating the file alone is not enough; the behaviour must work.
 
 ## Exercise 8: Show identity - 10 points
 
 **Where:** `product.py`. Record results under Exercise 8 in `answers.md`.
 
-**Required outcome:** Set alias = pen and change alias.stock. Record why pen changes too while book does not. Then create a separate Product with matching values and explain identity versus equal field values.
+**In simple terms — what you need to achieve:** Set alias = pen and change alias.stock. Record why pen changes too while book does not. Then create a separate Product with matching values and explain identity versus equal field values.
 
 An alias is a second name pointing at the same card.
 
@@ -218,17 +254,17 @@ An alias is a second name pointing at the same card.
 3. Create `other = Product("Pen", 200, 9)` and print `other is pen`.
 4. Explain why equal-looking field values do not imply the same object. Keep Book from Exercise 3 separate and inspect its stock too.
 
-**Check:** pen stock is 9, alias identity is True, other identity is False, and Book stays 7. You did not call the constructor when creating the alias; assignment only added a name.
+**Test these cases before you call it finished:** pen stock is 9, alias identity is True, other identity is False, and Book stays 7. You did not call the constructor when creating the alias; assignment only added a name.
 
-**Record:** the exact call, command or browser action; starting input; expected result above; actual output; and one sentence explaining the result. Use a fresh fixture whenever the instructions describe an independent case.
+**What to write in `answers.md`:** record: (1) what you ran, (2) the starting values, (3) what you expected, (4) what actually happened, and (5) one sentence explaining why. When a case is meant to be independent, create fresh objects so an earlier test cannot affect it.
 
-**Marks:** meeting the stated requirements 6, demonstrated cases with actual evidence 3, explanation 1. Manual criterion: `exercise_08`. The case-specific check above defines completion; a file merely existing earns no implementation points.
+**How this exercise is graded:** 6 points for the required implementation, 3 points for actually running and recording the required checks, and 1 point for your explanation. Manual criterion: `exercise_08`. Creating the file alone is not enough; the behaviour must work.
 
 ## Exercise 9: Build an object inventory - 10 points
 
 **Where:** `product.py`. Record results under Exercise 9 in `answers.md`.
 
-**Required outcome:** Store three Product objects in a list and total their values using the method. Include one zero-stock item. Print item names and total; calculate the same result by hand.
+**In simple terms — what you need to achieve:** Store three Product objects in a list and total their values using the method. Include one zero-stock item. Print item names and total; calculate the same result by hand.
 
 Build a shelf containing object cards rather than dictionaries.
 
@@ -237,11 +273,11 @@ Build a shelf containing object cards rather than dictionaries.
 3. Print the final total outside the loop. Repeat using an empty list.
 4. In answers.md show the hand calculation and explain why calling the method lets each object provide its own value.
 
-**Check:** rows have values 800, 3500, 0; total 4300. Empty inventory totals 0. Use `product.name`, not `product["name"]`, because these entries are objects.
+**Test these cases before you call it finished:** rows have values 800, 3500, 0; total 4300. Empty inventory totals 0. Use `product.name`, not `product["name"]`, because these entries are objects.
 
-**Record:** the exact call, command or browser action; starting input; expected result above; actual output; and one sentence explaining the result. Use a fresh fixture whenever the instructions describe an independent case.
+**What to write in `answers.md`:** record: (1) what you ran, (2) the starting values, (3) what you expected, (4) what actually happened, and (5) one sentence explaining why. When a case is meant to be independent, create fresh objects so an earlier test cannot affect it.
 
-**Marks:** meeting the stated requirements 6, demonstrated cases with actual evidence 3, explanation 1. Manual criterion: `exercise_09`. The case-specific check above defines completion; a file merely existing earns no implementation points.
+**How this exercise is graded:** 6 points for the required implementation, 3 points for actually running and recording the required checks, and 1 point for your explanation. Manual criterion: `exercise_09`. Creating the file alone is not enough; the behaviour must work.
 
 ## Exercise 10: Verify new cases and explain a limitation — 10 points
 
@@ -255,7 +291,11 @@ Build a shelf containing object cards rather than dictionaries.
 4. Include exact commands/actions and observed outputs so someone else can repeat both cases (2 points).
 5. Explain a specific remaining limitation and a concrete next change to address it (2 points). If the checks pass, discuss an unhandled scenario or scope limitation; do not invent a failure.
 
-**Finished when:** a reader can repeat both checks and understand the limitation. Manual criterion: `exercise_10`. This is further verification, not two additional projects.
+**You are done when:** a reader can repeat both checks and understand the limitation. Manual criterion: `exercise_10`. This is further verification, not two additional projects.
+
+## Before grading
+
+Stop and ask yourself: **Can I explain the code I wrote, change one input without help, and predict the result?** If not, revisit the relevant teaching section before treating the assignment as complete.
 
 ## Save and grade offline
 
